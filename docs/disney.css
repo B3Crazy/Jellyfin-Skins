@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.1.8
+ * Version: 2.1.9
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -318,20 +318,28 @@ h1 {
     background: transparent !important;
 }
 
-/* Force icons behind images with z-index */
+/* Ensure image containers don't create stacking issues */
+.cardImageContainer {
+    isolation: isolate;
+}
+
+/* Completely hide all placeholder icons and backgrounds */
 .cardImageIcon,
 .defaultCardBackground,
 .defaultCardBackground1,
 .defaultCardBackground2,
 .defaultCardBackground3,
 .defaultCardBackground4,
-.defaultCardBackground5 {
-    position: absolute !important;
-    z-index: -1 !important;
-    opacity: 0.2 !important;
+.defaultCardBackground5,
+.material-icons.cardImageIcon {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 
-/* All image elements - with proper z-index layering */
+/* All image elements - simplified stacking */
 .cardImage,
 .cardImageContainer img,
 .itemTileImage,
@@ -342,8 +350,6 @@ h1 {
     width: 100% !important;
     height: 100% !important;
     display: block !important;
-    position: relative !important;
-    z-index: 10 !important;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -352,42 +358,36 @@ h1 {
     transform: scale(1.08);
 }
 
-/* Image containers with proper stacking */
+/* Image containers - no stacking context */
 .lazy-image-container,
 .blurhash-container {
     position: relative;
-    z-index: 1;
 }
 
-/* Ensure loaded images are visible and on top */
+/* Loaded images should be visible */
 img[src]:not([src=""]) {
     display: block !important;
-    position: relative !important;
-    z-index: 10 !important;
 }
 
-/* Picture elements also properly layered */
+/* Picture elements */
 picture {
-    position: relative;
-    z-index: 10 !important;
     display: block !important;
 }
 
-/* Blurhash placeholder - layered above icons */
+/* Blurhash placeholder */
 .blurhash-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 5 !important;
-    transition: opacity 0.3s ease;
 }
 
-/* Fade out blurhash after image loads */
+/* Fade out blurhash when image is loaded */
+img[src]:not([src=""]) ~ .blurhash-canvas,
 .cardImageContainer:has(img[src]) .blurhash-canvas {
     opacity: 0 !important;
-    transition: opacity 0.5s ease !important;
+    pointer-events: none !important;
 }
 
 /* Card content properly layered */
