@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.1                                          ║
+ * ║       Version 1.0.0                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -874,12 +874,6 @@ tr:hover {
     .itemDetailPageTitle {
         font-size: 2rem !important;
     }
-    
-    .detailImageContainer {
-        float: none !important;
-        margin: 0 auto 1rem !important;
-        max-width: 250px !important;
-    }
 }
 
 @media (max-width: 768px) {
@@ -894,11 +888,11 @@ tr:hover {
     
     #itemDetailPage {
         --card-width: 100%;
-        padding: 1.5em !important;
     }
     
-    .detailRibbon {
-        height: auto;
+    .itemName,
+    .itemDetailPageTitle {
+        font-size: 1.8rem !important;
     }
 }
 
