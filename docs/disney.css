@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.1.7
+ * Version: 2.1.8
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -318,18 +318,20 @@ h1 {
     background: transparent !important;
 }
 
-/* Only hide default background when actual image is present */
-.cardImageContainer:has(img[src]) .cardImageIcon,
-.cardImageContainer:has(img[src]) .defaultCardBackground {
-    display: none !important;
+/* Force icons behind images with z-index */
+.cardImageIcon,
+.defaultCardBackground,
+.defaultCardBackground1,
+.defaultCardBackground2,
+.defaultCardBackground3,
+.defaultCardBackground4,
+.defaultCardBackground5 {
+    position: absolute !important;
+    z-index: -1 !important;
+    opacity: 0.2 !important;
 }
 
-/* Hide placeholder icons only when they're the only content */
-.cardImageIcon:only-child {
-    opacity: 0.3 !important;
-}
-
-/* All image elements - simplified and unblocked */
+/* All image elements - with proper z-index layering */
 .cardImage,
 .cardImageContainer img,
 .itemTileImage,
@@ -340,6 +342,8 @@ h1 {
     width: 100% !important;
     height: 100% !important;
     display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -348,30 +352,42 @@ h1 {
     transform: scale(1.08);
 }
 
-/* Allow normal image loading behavior */
+/* Image containers with proper stacking */
 .lazy-image-container,
 .blurhash-container {
     position: relative;
+    z-index: 1;
 }
 
-/* Ensure loaded images are visible */
+/* Ensure loaded images are visible and on top */
 img[src]:not([src=""]) {
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Picture elements also properly layered */
+picture {
+    position: relative;
+    z-index: 10 !important;
     display: block !important;
 }
 
-/* Blurhash placeholder - allow normal behavior */
+/* Blurhash placeholder - layered above icons */
 .blurhash-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 5 !important;
     transition: opacity 0.3s ease;
 }
 
-/* Hide blurhash after image loads */
+/* Fade out blurhash after image loads */
 .cardImageContainer:has(img[src]) .blurhash-canvas {
     opacity: 0 !important;
+    transition: opacity 0.5s ease !important;
 }
 
 /* Card content properly layered */
