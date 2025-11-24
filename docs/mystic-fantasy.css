@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.1                                          ║
+ * ║       Version 1.0.0                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -622,9 +622,10 @@ input[type="search"]:focus {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
-    gap: 2rem !important;
+    gap: 3rem !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
+    padding-left: 0 !important;
 }
 
 .detailImageContainer {
@@ -637,6 +638,7 @@ input[type="search"]:focus {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    margin-right: 2rem !important;
 }
 
 .detailImageContainer .card {
@@ -658,6 +660,8 @@ input[type="search"]:focus {
     min-width: 0 !important;
     visibility: visible !important;
     opacity: 1 !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
 }
 
 .itemBackdrop {
