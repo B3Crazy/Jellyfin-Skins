@@ -1,9 +1,9 @@
 # Jellyfin Skins
 Custom CSS themes to enhance your jellyfin experience
 
-|-|-|
-| mystic-fantasy | @import url('https://b3crazy.github.io/Jellyfin-Skins/docs/mystic-fantasy.css'); |
-| ![window-main](screenshots/mystic-fantasy-main.PNG) | ![window-film](screenshots/mystic-fantasy-film.PNG) |
+
+mystic-fantasy | @import url('https://b3crazy.github.io/Jellyfin-Skins/docs/mystic-fantasy.css');
+![window-main](screenshots/mystic-fantasy-main.PNG) ![window-film](screenshots/mystic-fantasy-film.PNG)
 
 
 
