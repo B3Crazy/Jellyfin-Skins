@@ -41,7 +41,7 @@ https://raw.githubusercontent.com/B3Crazy/Jellyfin-Skins/main/netflix-clone.css
 Some Jellyfin installations support `@import`:
 
 ```css
-@import url('https://raw.githubusercontent.com/B3Crazy/Jellyfin-Skins/main/netflix-clone.css');
+@import url('https://b3crazy.github.io/Jellyfin-Skins/netflix-clone.css');
 ```
 
 **Note:** If this doesn't work, use Method 1.
