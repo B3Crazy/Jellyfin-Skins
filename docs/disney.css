@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.1.10
+ * Version: 2.1.11
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -323,12 +323,22 @@ h1 {
     isolation: isolate;
 }
 
-/* Hide ALL material icons in card image areas */
-.cardImageContainer .material-icons,
-.cardContent-button .material-icons,
-.cardScalable .material-icons,
-.cardOverlayContainer .material-icons,
+/* Show placeholder icons by default with low opacity */
 .cardImageIcon,
+.cardImageContainer .material-icons {
+    opacity: 0.15 !important;
+    color: var(--text-muted) !important;
+}
+
+/* Hide icons only when image is present and loaded */
+.cardImageContainer:has(img[src]:not([src=""])) .material-icons,
+.cardImageContainer:has(img[src]:not([src=""])) .cardImageIcon,
+.cardImageContainer:has(.lazy-image-fadein-fast) .material-icons,
+.cardImageContainer:has(.lazy-image-fadein-fast) .cardImageIcon {
+    display: none !important;
+}
+
+/* Hide default backgrounds always */
 .defaultCardBackground,
 .defaultCardBackground1,
 .defaultCardBackground2,
@@ -336,16 +346,9 @@ h1 {
 .defaultCardBackground4,
 .defaultCardBackground5 {
     display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    position: absolute !important;
-    left: -9999px !important;
-    pointer-events: none !important;
 }
 
-/* All image elements - force display */
+/* All image elements - ensure they display */
 .cardImage,
 .cardImageContainer img,
 .itemTileImage,
@@ -354,7 +357,8 @@ h1 {
 .cardOverlayContainer img,
 img.itemImage,
 img.coveredImage,
-.lazy-image-fadein-fast {
+.lazy-image-fadein-fast,
+img[src]:not([src=""]) {
     object-fit: cover !important;
     width: 100% !important;
     height: 100% !important;
