@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone - Preview</title>
+    <link rel="stylesheet" href="../custom.css">
+    <style>
+        /* Demo-spezifische Styles */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .demo-card-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .demo-backdrop {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header / Navigation -->
+    <header class="skinHeader">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 60px;">
+            <div style="display: flex; align-items: center; gap: 30px;">
+                <div class="headerLeft" style="color: #E50914; font-size: 2.5rem; font-weight: 900;">JELLYFIN</div>
+                <nav style="display: flex; gap: 20px;">
+                    <a href="#" class="headerButton selected">Home</a>
+                    <a href="#" class="headerButton">Serien</a>
+                    <a href="#" class="headerButton">Filme</a>
+                    <a href="#" class="headerButton">Neu & Beliebt</a>
+                    <a href="#" class="headerButton">Meine Liste</a>
+                </nav>
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <input type="text" class="searchInput" placeholder="Titel, Personen, Genres">
+                <div class="headerUserImage"></div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero / Billboard Banner -->
+    <section class="heroContent" style="background: linear-gradient(to bottom, rgba(0,0,0,0.3), #000), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiIGZpbGw9IiMyYTUyOTgiLz48L3N2Zz4='); background-size: cover;">
+        <div class="heroTextContent">
+            <h1 class="heroTitle">Stranger Things</h1>
+            <p class="heroOverview">
+                Als ein kleiner Junge verschwindet, deckt eine Kleinstadt ein Geheimnis auf, 
+                das geheime Experimente, übernatürliche Kräfte und ein sehr merkwürdiges 
+                kleines Mädchen umfasst.
+            </p>
+            <div style="display: flex; gap: 15px; margin-top: 30px;">
+                <button class="heroButton playButton">
+                    ▶ Abspielen
+                </button>
+                <button class="heroButton moreInfoButton">
+                    ℹ Weitere Infos
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Content Rows -->
+    <div style="margin-top: -150px; position: relative; z-index: 2;">
+        
+        <!-- Weiter schauen -->
+        <section class="section">
+            <h2 class="sectionTitle">Für Sie empfohlen</h2>
+            <div class="itemsContainerInner">
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image">Film 1</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Action Thriller</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">Film 2</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Romantische Komödie</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">Film 3</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Science Fiction</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">Film 4</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Dokumentation</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">Film 5</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Horror</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">Film 6</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Drama</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Trendige Serien -->
+        <section class="section">
+            <h2 class="sectionTitle">Heute in Deutschland in den Top 10</h2>
+            <div class="itemsContainerInner">
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">Serie 1</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Top Serie #1</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">Serie 2</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Top Serie #2</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">Serie 3</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Top Serie #3</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">Serie 4</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Top Serie #4</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">Serie 5</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Top Serie #5</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Neue Veröffentlichungen -->
+        <section class="section">
+            <h2 class="sectionTitle">Neue Veröffentlichungen</h2>
+            <div class="itemsContainerInner">
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">Neu 1</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Brandneu</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);">Neu 2</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Diese Woche</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);">Neu 3</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Kommende Woche</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardBox">
+                        <div class="demo-card-image" style="background: linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%);">Neu 4</div>
+                        <div class="cardOverlayButton">▶</div>
+                    </div>
+                    <div class="cardText">
+                        <h3 class="cardTextCentered">Demnächst</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footerLinks">
+            <a href="#" class="footerLink">Audio und Untertitel</a>
+            <a href="#" class="footerLink">Media Center</a>
+            <a href="#" class="footerLink">Datenschutz</a>
+            <a href="#" class="footerLink">Kontakt</a>
+            <a href="#" class="footerLink">Audiobeschreibung</a>
+            <a href="#" class="footerLink">Hilfe-Center</a>
+            <a href="#" class="footerLink">Jobs</a>
+            <a href="#" class="footerLink">Cookie-Einstellungen</a>
+            <a href="#" class="footerLink">Geschenkkarten</a>
+            <a href="#" class="footerLink">Nutzungsbedingungen</a>
+            <a href="#" class="footerLink">Impressum</a>
+        </div>
+        <div class="footerCopyright">
+            © 2024 Jellyfin Netflix Clone Skin - Nicht verbunden mit Netflix, Inc.
+        </div>
+    </footer>
+    
+    <script>
+        // Scroll-Effekt für Header
+        let lastScroll = 0;
+        const header = document.querySelector('.skinHeader');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Hover-Effekt Demo
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.08)';
+                this.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.zIndex = '1';
+            });
+        });
+    </script>
+</body>
+</html>

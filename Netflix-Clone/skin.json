@@ -1,0 +1,50 @@
+{
+  "name": "Netflix Clone Skin",
+  "version": "1.0.1",
+  "description": "Ein detailgetreuer Netflix-Skin für Jellyfin - Alle Styles in einer CSS-Datei",
+  "author": "B3Crazy",
+  "license": "MIT",
+  "repository": "https://github.com/B3Crazy/Jellyfin-Skins",
+  "importUrl": "https://raw.githubusercontent.com/B3Crazy/Jellyfin-Skins/main/Netflix-Clone/custom.css",
+  "keywords": [
+    "jellyfin",
+    "skin",
+    "theme",
+    "netflix",
+    "css",
+    "custom-css"
+  ],
+  "compatibility": {
+    "jellyfin": ">=10.8.0",
+    "browsers": [
+      "Chrome >= 90",
+      "Firefox >= 88",
+      "Safari >= 14",
+      "Edge >= 90"
+    ]
+  },
+  "features": [
+    "Netflix-authentisches Design",
+    "Hero/Billboard Banner",
+    "Horizontale Content-Reihen",
+    "Hover-Zoom-Effekte",
+    "Detail-Modal",
+    "Responsive Design",
+    "Video-Player-Anpassungen",
+    "Erweiterte Jellyfin-Selektoren",
+    "Accessibility Support"
+  ],
+  "installation": {
+    "method1": "GitHub Import: @import url('https://raw.githubusercontent.com/B3Crazy/Jellyfin-Skins/main/Netflix-Clone/custom.css');",
+    "method2": "CSS direkt in Jellyfin Dashboard → Benutzerdefiniertes CSS einfügen",
+    "method3": "custom.css in web-custom Ordner kopieren"
+  },
+  "colors": {
+    "primary": "#E50914",
+    "background": "#000000",
+    "surface": "#141414",
+    "surfaceVariant": "#181818",
+    "textPrimary": "#FFFFFF",
+    "textSecondary": "#B3B3B3"
+  }
+}
