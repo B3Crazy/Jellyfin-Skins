@@ -4,73 +4,63 @@ Custom CSS themes for Jellyfin Media Server.
 
 ---
 
-## 🎨 Available Skins
+## 🎨 Netflix Clone (v4.0)
 
-### Netflix Clone
-
-Netflix-inspired dark theme with authentic color palette and modern UI.
+Authentisches Netflix-Design für Jellyfin mit schwarzem Hintergrund, roten Akzenten und modernem UI.
 
 **Import URL:**
 ```
-https://raw.githubusercontent.com/B3Crazy/Jellyfin-Skins/main/netflix-clone.css
+https://b3crazy.github.io/Jellyfin-Skins/netflix-clone.css
 ```
 
-**Features:**
-- Netflix red accent color (#E50914)
-- Dark background (#141414)
-- Smooth hover animations
-- Clean card design
-- No blur effects
-- Responsive layout
+**Neue Features in v4.0:**
+- ✅ Komplett schwarzer Hintergrund (#141414) wie Netflix
+- ✅ Schwarze Sidebar mit roter Akzentfarbe
+- ✅ Rote Fortschrittsbalken (#E50914)
+- ✅ Dunkle Karten mit Hover-Effekt
+- ✅ Keine Blur-Effekte mehr
+- ✅ Netflix-Farbpalette (grau-Töne: e5e5e5, b3b3b3, 808080)
+- ✅ Optimiert für Jellyfin HTML-Struktur
 
 ---
 
 ## 📦 Installation
 
-### Method 1: Copy & Paste (Recommended)
+### ⚠️ WICHTIG: Kopieren & Einfügen verwenden!
 
-1. Open the CSS file: [netflix-clone.css](https://raw.githubusercontent.com/B3Crazy/Jellyfin-Skins/main/netflix-clone.css)
-2. Copy the entire content (Ctrl+A, Ctrl+C)
-3. Open Jellyfin Dashboard → General → Custom CSS
-4. Paste the code into the text field
-5. Save
-6. Reload page (Ctrl+F5)
+Jellyfins CSS-Import funktioniert **nicht zuverlässig**. Verwende diese Methode:
 
-### Method 2: GitHub Import (May not work)
-
-Some Jellyfin installations support `@import`:
-
-```css
-@import url('https://b3crazy.github.io/Jellyfin-Skins/netflix-clone.css');
-```
-
-**Note:** If this doesn't work, use Method 1.
+1. **Öffne die CSS-Datei:** [netflix-clone.css](https://raw.githubusercontent.com/B3Crazy/Jellyfin-Skins/main/netflix-clone.css)
+2. **Alles markieren:** Drücke `Ctrl+A` (gesamter Inhalt)
+3. **Kopieren:** Drücke `Ctrl+C`
+4. **Jellyfin öffnen:** Dashboard → Allgemein → Benutzerdefiniertes CSS
+5. **Einfügen:** Drücke `Ctrl+V` in das Textfeld
+6. **Speichern**
+7. **Neuladen:** Drücke `Ctrl+F5` (erzwungenes Neuladen)
 
 ---
 
 ## 🔧 Troubleshooting
 
-**Nothing changes?**
-- Clear browser cache (Ctrl+Shift+Delete)
-- Reload with Ctrl+F5
-- Try incognito/private mode
+**Sieht immer noch wie vorher aus?**
+1. Lösche den kompletten Inhalt im CSS-Feld
+2. Füge die neue v4.0 CSS ein
+3. Speichern
+4. **Browser-Cache leeren:** Drücke `Ctrl+Shift+Delete`
+5. **Hard Reload:** Drücke `Ctrl+F5`
+6. Falls nötig: Inkognito-Modus testen
 
-**Everything blurred?**
-- The new v2.0 removes all blur effects
-- Make sure you're using the latest version
-
-**Still issues?**
-- Check Jellyfin version (needs 10.8.0+)
-- Open browser console (F12) for errors
-- Try a different browser
+**Immer noch Probleme?**
+- Stelle sicher, dass du die **komplette** CSS-Datei kopiert hast (500+ Zeilen)
+- Überprüfe die Jellyfin-Version (benötigt 10.8.0+)
+- Öffne Browser-Konsole (F12) für Fehlermeldungen
 
 ---
 
 ## 📝 License
 
-MIT License - See [LICENSE](LICENSE) file
+MIT License
 
 ## ⚠️ Disclaimer
 
-Not affiliated with Netflix, Inc. This is a community-created theme.
-A collection of jellyfin skins
+Not affiliated with Netflix, Inc. Community theme.
