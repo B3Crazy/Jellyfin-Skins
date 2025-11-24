@@ -34,6 +34,17 @@ body {
     display: none !important;
 }
 
+/* Alle Seiten schwarz */
+.page,
+.view,
+.mainAnimatedPages,
+#indexPage,
+.libraryPage,
+.itemsPage {
+    background-color: var(--netflix-black) !important;
+    background-image: none !important;
+}
+
 
 /* ==================== NAVIGATION DRAWER (SIDEBAR) ==================== */
 .mainDrawer-scrollContainer,
@@ -68,6 +79,18 @@ body {
 
 .listItem .listItemBody {
     color: inherit !important;
+}
+
+/* Drawer Header */
+.drawerHeader {
+    background-color: #000000 !important;
+    color: var(--netflix-white) !important;
+    padding: 1.5em !important;
+}
+
+/* Sidebar scrolling */
+.scrollContainer {
+    background-color: #000000 !important;
 }
 
 /* ==================== TOP HEADER ==================== */
@@ -115,6 +138,27 @@ body {
     height: 32px !important;
 }
 
+/* Header Logo */
+.headerLogo {
+    color: var(--netflix-red) !important;
+    font-weight: 700 !important;
+}
+
+/* Header Icons */
+.headerButton .material-icons {
+    color: inherit !important;
+}
+
+/* View Settings Button */
+.btnViewSettings {
+    background: transparent !important;
+    color: #e5e5e5 !important;
+}
+
+.btnViewSettings:hover {
+    color: #ffffff !important;
+}
+
 /* ==================== MAIN CONTENT AREA ==================== */
 .mainAnimatedPage {
     background-color: var(--netflix-black) !important;
@@ -135,6 +179,24 @@ body {
 
 .sectionTitleContainer {
     margin-bottom: 0.5em !important;
+}
+
+.sectionTitleButton {
+    color: var(--netflix-white) !important;
+    background: transparent !important;
+}
+
+.sectionTitleButton:hover {
+    color: #ffffff !important;
+}
+
+/* Vertical sections */
+.verticalSection {
+    margin: 2em 0 !important;
+}
+
+.verticalSection .sectionTitle {
+    padding-left: 4% !important;
 }
 
 /* ==================== CARDS & ITEMS ==================== */
@@ -238,6 +300,54 @@ body {
     padding: 0.5em !important;
 }
 
+/* Card Content */
+.cardContent {
+    background: transparent !important;
+}
+
+.cardImageIcon {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Portrait Cards */
+.portraitCard {
+    background: transparent !important;
+}
+
+.portraitCard .cardBox {
+    background-color: var(--netflix-gray) !important;
+}
+
+/* Backdrop Cards */
+.backdropCard {
+    background: transparent !important;
+}
+
+.backdropCard .cardBox {
+    background-color: var(--netflix-gray) !important;
+}
+
+/* Square Cards */
+.squareCard {
+    background: transparent !important;
+}
+
+.squareCard .cardBox {
+    background-color: var(--netflix-gray) !important;
+}
+
+/* Overflowing Card Text */
+.cardText-secondary {
+    color: #b3b3b3 !important;
+    font-size: 0.85em !important;
+}
+
+/* Card Footer */
+.cardFooter {
+    background: transparent !important;
+    padding: 0.5em 0 !important;
+}
+
 /* ==================== DETAIL PAGE ==================== */
 .detailPage-content {
     background-color: var(--netflix-black) !important;
@@ -304,6 +414,51 @@ body {
     background-color: rgba(109, 109, 110, 0.7) !important;
 }
 
+/* Item Detail Sections */
+.detailSection {
+    background-color: var(--netflix-black) !important;
+    padding: 2em 4% !important;
+}
+
+.detailSection .sectionTitle {
+    color: var(--netflix-white) !important;
+}
+
+/* Cast & Crew */
+.itemDetailGallery {
+    background-color: transparent !important;
+}
+
+.itemDetailGalleryLink {
+    background-color: var(--netflix-gray) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    transition: all 0.2s !important;
+}
+
+.itemDetailGalleryLink:hover {
+    background-color: var(--netflix-light-gray) !important;
+    transform: scale(1.05) !important;
+}
+
+.itemDetailImage {
+    border-radius: 8px 8px 0 0 !important;
+}
+
+/* Media Info */
+.mediaInfoItems {
+    color: var(--netflix-white) !important;
+}
+
+.mediaInfoItem {
+    color: #b3b3b3 !important;
+    margin: 0.5em 0 !important;
+}
+
+.mediaInfoLabel {
+    color: #808080 !important;
+}
+
 /* ==================== BUTTONS ==================== */
 .button-flat,
 .raised,
@@ -343,6 +498,37 @@ body {
     background-color: #f40612 !important;
 }
 
+/* Icon Buttons */
+.paper-icon-button-light {
+    color: #e5e5e5 !important;
+    background: transparent !important;
+}
+
+.paper-icon-button-light:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Raised Buttons */
+.raised {
+    box-shadow: none !important;
+}
+
+.raised:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Link Buttons */
+.button-link {
+    color: var(--netflix-white) !important;
+    background: transparent !important;
+}
+
+.button-link:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
 /* ==================== FORM INPUTS ==================== */
 .emby-input,
 .emby-textarea,
@@ -378,6 +564,35 @@ body {
     border-color: var(--netflix-light-gray) !important;
 }
 
+/* Select Dropdowns */
+.emby-select option {
+    background-color: var(--netflix-dark-gray) !important;
+    color: var(--netflix-white) !important;
+}
+
+/* Input Labels */
+.inputLabel,
+.emby-label {
+    color: var(--netflix-white) !important;
+}
+
+.fieldDescription {
+    color: #b3b3b3 !important;
+}
+
+/* Sliders */
+.mdl-slider {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.mdl-slider__background-upper {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.mdl-slider__background-lower {
+    background-color: var(--netflix-red) !important;
+}
+
 /* ==================== TABS ==================== */
 .emby-tab-button {
     color: #808080 !important;
@@ -397,6 +612,24 @@ body {
     color: #ffffff !important;
     border-bottom-color: var(--netflix-red) !important;
     font-weight: 700 !important;
+}
+
+/* Tab Content */
+.tabContent {
+    background-color: var(--netflix-black) !important;
+}
+
+/* Segmented Buttons */
+.emby-button-group {
+    background-color: transparent !important;
+}
+
+.emby-button-group .emby-button {
+    border: 1px solid var(--netflix-light-gray) !important;
+}
+
+.emby-button-group .emby-button.emby-button-tv {
+    background-color: var(--netflix-gray) !important;
 }
 
 /* ==================== DIALOGS & MODALS ==================== */
@@ -422,6 +655,27 @@ body {
 
 .formDialogFooter {
     background-color: var(--netflix-dark-gray) !important;
+}
+
+/* Toast Messages */
+.toast {
+    background-color: var(--netflix-dark-gray) !important;
+    color: var(--netflix-white) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Popup Menu */
+.popupMenu {
+    background-color: var(--netflix-dark-gray) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Bottom Sheet */
+.actionsheet {
+    background-color: var(--netflix-dark-gray) !important;
+    border-radius: 8px 8px 0 0 !important;
 }
 
 /* ==================== CONTEXT MENU ==================== */
@@ -484,6 +738,35 @@ body {
     color: var(--netflix-red) !important;
 }
 
+/* Volume Slider */
+.volumeSlider {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.volumeSlider-fill {
+    background-color: #ffffff !important;
+}
+
+/* Playback Info */
+.videoOsdTitle {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+.videoOsdSecondaryText {
+    color: #b3b3b3 !important;
+}
+
+/* Next Up */
+.upNextContainer {
+    background-color: rgba(20, 20, 20, 0.95) !important;
+    border-radius: 8px !important;
+}
+
+.upNextDialog-poster {
+    border-radius: 4px !important;
+}
+
 /* ==================== LIBRARY VIEW ==================== */
 .alphaPickerButton {
     background-color: transparent !important;
@@ -503,6 +786,36 @@ body {
     font-weight: 700 !important;
 }
 
+/* Library Toolbar */
+.viewToolbar {
+    background-color: transparent !important;
+    padding: 1em 4% !important;
+}
+
+/* Filter Buttons */
+.btnFilter,
+.btnSort {
+    background-color: var(--netflix-gray) !important;
+    color: var(--netflix-white) !important;
+    border-radius: 4px !important;
+    padding: 0.5em 1em !important;
+}
+
+.btnFilter:hover,
+.btnSort:hover {
+    background-color: var(--netflix-light-gray) !important;
+}
+
+/* View Toggle */
+.btnToggleView {
+    background-color: transparent !important;
+    color: #808080 !important;
+}
+
+.btnToggleView.active {
+    color: var(--netflix-red) !important;
+}
+
 /* ==================== SEARCH ==================== */
 .searchResults-gridSearchResults {
     background-color: var(--netflix-black) !important;
@@ -518,6 +831,28 @@ body {
 
 .searchSuggestion:hover {
     background-color: var(--netflix-light-gray) !important;
+}
+
+/* Search Input */
+.searchInput,
+.emby-input.searchInput {
+    background-color: rgba(47, 47, 47, 0.7) !important;
+    border: 1px solid var(--netflix-light-gray) !important;
+    color: var(--netflix-white) !important;
+}
+
+.searchInput:focus {
+    background-color: var(--netflix-gray) !important;
+    border-color: var(--netflix-red) !important;
+}
+
+/* Search Results */
+.searchResults {
+    background-color: var(--netflix-black) !important;
+}
+
+.searchResults .card {
+    background-color: transparent !important;
 }
 
 /* ==================== SCROLLBARS ==================== */
@@ -626,6 +961,249 @@ body {
 * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==================== ADDITIONAL COMPONENTS ==================== */
+
+/* Menu Items */
+.listItem {
+    background-color: transparent !important;
+}
+
+.listItem:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Paper List */
+.paperList {
+    background-color: transparent !important;
+}
+
+/* Content Backdrop */
+.backdropContainer {
+    opacity: 0 !important;
+}
+
+/* Page Title */
+.pageTitle {
+    color: var(--netflix-white) !important;
+    font-weight: 700 !important;
+}
+
+/* Metadata */
+.metadataSidebarItem {
+    color: var(--netflix-white) !important;
+}
+
+.metadataSidebarLabel {
+    color: #808080 !important;
+}
+
+/* Navigation Links */
+a {
+    color: var(--netflix-white) !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #ffffff !important;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--netflix-white) !important;
+}
+
+/* Paragraph Text */
+p {
+    color: var(--netflix-white) !important;
+}
+
+/* Labels */
+label {
+    color: var(--netflix-white) !important;
+}
+
+/* Indicators */
+.indicator {
+    background-color: var(--netflix-red) !important;
+    color: #ffffff !important;
+}
+
+/* Badges */
+.badge {
+    background-color: var(--netflix-red) !important;
+    color: #ffffff !important;
+    border-radius: 3px !important;
+}
+
+/* User Rating */
+.userRating {
+    color: #ffd700 !important;
+}
+
+/* Community Rating */
+.communityRating {
+    color: var(--netflix-white) !important;
+}
+
+/* Play State Indicator */
+.playedIndicator {
+    background-color: var(--netflix-red) !important;
+    color: #ffffff !important;
+}
+
+/* Unplayed Indicator */
+.unplayedIndicator {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+}
+
+/* Resume Position */
+.resumeTextContainer {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent) !important;
+}
+
+.resumeText {
+    color: var(--netflix-white) !important;
+}
+
+/* Item Tags */
+.itemTag {
+    background-color: var(--netflix-gray) !important;
+    color: var(--netflix-white) !important;
+    border-radius: 3px !important;
+    padding: 0.3em 0.6em !important;
+}
+
+/* Genre Tags */
+.itemGenre {
+    color: var(--netflix-white) !important;
+    background-color: var(--netflix-gray) !important;
+    border-radius: 3px !important;
+    padding: 0.3em 0.6em !important;
+    margin: 0.2em !important;
+}
+
+.itemGenre:hover {
+    background-color: var(--netflix-light-gray) !important;
+}
+
+/* Empty Message */
+.emptyMessage {
+    color: #808080 !important;
+}
+
+/* Loading Message */
+.loadingMessage {
+    color: var(--netflix-white) !important;
+}
+
+/* Guide Cells (Live TV) */
+.programCell {
+    background-color: var(--netflix-gray) !important;
+    border-color: var(--netflix-light-gray) !important;
+}
+
+.programCell-active {
+    background-color: var(--netflix-red) !important;
+}
+
+/* Chapter Images */
+.chapterImage {
+    border-radius: 4px !important;
+}
+
+/* Version Info */
+.versionInfo {
+    color: #808080 !important;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--netflix-black) !important;
+    color: #808080 !important;
+}
+
+/* Status Text */
+.statusText {
+    color: #808080 !important;
+}
+
+/* Sync Status */
+.syncStatus {
+    color: var(--netflix-white) !important;
+}
+
+/* Download Button */
+.downloadButton {
+    background-color: var(--netflix-gray) !important;
+    color: var(--netflix-white) !important;
+}
+
+.downloadButton:hover {
+    background-color: var(--netflix-light-gray) !important;
+}
+
+/* Play All Button */
+.btnPlayAll {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.btnPlayAll:hover {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Shuffle Button */
+.btnShuffle {
+    background-color: rgba(109, 109, 110, 0.7) !important;
+    color: #ffffff !important;
+}
+
+.btnShuffle:hover {
+    background-color: rgba(109, 109, 110, 0.5) !important;
+}
+
+/* Settings Panel */
+.settingsPanel {
+    background-color: var(--netflix-black) !important;
+}
+
+.settingsSection {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--netflix-light-gray) !important;
+}
+
+/* Help Text */
+.fieldDescription,
+.helpText {
+    color: #b3b3b3 !important;
+    font-size: 0.9em !important;
+}
+
+/* Error Message */
+.errorMessage {
+    color: #ff4444 !important;
+    background-color: rgba(255, 68, 68, 0.1) !important;
+    padding: 1em !important;
+    border-radius: 4px !important;
+}
+
+/* Success Message */
+.successMessage {
+    color: #44ff44 !important;
+    background-color: rgba(68, 255, 68, 0.1) !important;
+    padding: 1em !important;
+    border-radius: 4px !important;
+}
+
+/* Warning Message */
+.warningMessage {
+    color: #ffaa00 !important;
+    background-color: rgba(255, 170, 0, 0.1) !important;
+    padding: 1em !important;
+    border-radius: 4px !important;
 }
 
 /* ==================== END ==================== */
