@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.0                                          ║
+ * ║       Version 1.0.1                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -613,19 +613,26 @@ input[type="search"]:focus {
     background: transparent !important;
     position: relative !important;
     padding-top: 2rem !important;
+    text-align: center !important;
 }
 
 .detailImageContainer {
     position: relative !important;
-    float: left !important;
+    display: inline-block !important;
+    float: none !important;
     margin-right: 2rem !important;
     margin-bottom: 1rem !important;
     z-index: 2 !important;
+    vertical-align: top !important;
 }
 
 .infoWrapper {
     position: relative !important;
     z-index: 2 !important;
+    display: inline-block !important;
+    text-align: left !important;
+    vertical-align: top !important;
+    max-width: calc(100% - 350px) !important;
 }
 
 .itemBackdrop {
@@ -659,9 +666,12 @@ input[type="search"]:focus {
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9),
                  0 0 40px var(--jf-purple-light) !important;
     margin-top: 0 !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 2rem !important;
     position: relative !important;
     z-index: 3 !important;
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
 }
 
 .itemMiscInfo,
