@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.0                                          ║
+ * ║       Version 1.0.1                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -618,34 +618,43 @@ input[type="search"]:focus {
     min-height: 60vh;
     margin-top: 0;
     background: transparent;
-    position: static !important;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: flex-start;
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 300px 1fr !important;
+    grid-gap: 3rem !important;
+    align-items: start !important;
 }
 
 .detailImageContainer {
-    flex-shrink: 0;
-    width: auto !important;
-    max-width: 400px;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 300px !important;
+    grid-column: 1 !important;
 }
 
 .detailImageContainer .card {
     margin: 0 !important;
+    position: relative !important;
 }
 
 .infoWrapper {
-    flex: 1;
+    position: relative !important;
+    grid-column: 2 !important;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-left: 2rem;
+    width: 100% !important;
 }
 
 .itemBackdrop {
     border-radius: var(--rounding-default);
     overflow: hidden;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50vh;
+    z-index: -1 !important;
 }
 
 .detailLogo {
@@ -653,26 +662,33 @@ input[type="search"]:focus {
             drop-shadow(0 0 40px var(--jf-purple-light));
     animation: float 6s ease-in-out infinite;
     margin-bottom: 1rem !important;
+    position: relative !important;
 }
 
 .itemName,
 .itemDetailPageTitle {
     font-family: 'Cinzel', serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: white;
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9),
                  0 0 40px var(--jf-purple-light);
     margin-top: 0 !important;
     margin-bottom: 1rem !important;
-    z-index: 10;
-    position: relative;
+    position: relative !important;
+    z-index: 10 !important;
 }
 
 .itemMiscInfo,
 .detailPageSecondaryContainer {
     margin-top: 1rem !important;
-    clear: both;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.detailPagePrimaryContainer {
+    position: relative !important;
+    z-index: 10 !important;
 }
 
 /* ============================================================
@@ -915,20 +931,21 @@ tr:hover {
     
     .itemName,
     .itemDetailPageTitle {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .detailRibbon {
-        flex-direction: column;
+        grid-template-columns: 1fr !important;
+        grid-gap: 1.5rem !important;
     }
     
     .detailImageContainer {
-        max-width: 100%;
+        max-width: 250px !important;
+        margin: 0 auto;
     }
     
     .infoWrapper {
-        padding-left: 0;
-        padding-top: 1rem;
+        grid-column: 1 !important;
     }
 }
 
