@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.1                                          ║
+ * ║       Version 1.0.0                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -611,17 +611,21 @@ input[type="search"]:focus {
 
 .detailRibbon {
     background: transparent !important;
+    position: relative !important;
+    padding-top: 2rem !important;
 }
 
 .detailImageContainer {
     position: relative !important;
+    float: left !important;
+    margin-right: 2rem !important;
+    margin-bottom: 1rem !important;
     z-index: 2 !important;
 }
 
 .infoWrapper {
     position: relative !important;
-    z-index: 3 !important;
-    padding-left: 2rem !important;
+    z-index: 2 !important;
 }
 
 .itemBackdrop {
@@ -632,9 +636,10 @@ input[type="search"]:focus {
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    height: 60vh !important;
-    z-index: 0 !important;
-    opacity: 0.4 !important;
+    height: 55vh !important;
+    z-index: 1 !important;
+    opacity: 0.3 !important;
+    filter: brightness(0.7) !important;
 }
 
 .detailLogo {
@@ -656,19 +661,19 @@ input[type="search"]:focus {
     margin-top: 0 !important;
     margin-bottom: 1rem !important;
     position: relative !important;
-    z-index: 5 !important;
+    z-index: 3 !important;
 }
 
 .itemMiscInfo,
 .detailPageSecondaryContainer {
     margin-top: 1rem !important;
     position: relative !important;
-    z-index: 5 !important;
+    z-index: 3 !important;
 }
 
 .detailPagePrimaryContainer {
     position: relative !important;
-    z-index: 5 !important;
+    z-index: 3 !important;
 }
 
 /* ============================================================
@@ -914,8 +919,10 @@ tr:hover {
         font-size: 2rem !important;
     }
     
-    .infoWrapper {
-        padding-left: 1rem !important;
+    .detailImageContainer {
+        float: none !important;
+        margin: 0 auto 1rem !important;
+        max-width: 250px !important;
     }
 }
 
