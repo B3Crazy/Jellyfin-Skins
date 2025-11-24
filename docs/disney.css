@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.1.4
+ * Version: 2.1.5
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -318,6 +318,20 @@ h1 {
     background: transparent !important;
 }
 
+/* Hide all default icons */
+.cardImageIcon,
+.cardIndicators .material-icons,
+.defaultCardBackground,
+.defaultCardBackground1,
+.defaultCardBackground2,
+.defaultCardBackground3,
+.defaultCardBackground4,
+.defaultCardBackground5 {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
 /* All image elements */
 .cardImage,
 .cardImageContainer img,
@@ -333,6 +347,8 @@ h1 {
     opacity: 1 !important;
     visibility: visible !important;
     background: transparent !important;
+    position: relative !important;
+    z-index: 1 !important;
 }
 
 .card:hover .cardImage,
@@ -1232,6 +1248,21 @@ a,
     display: none !important;
 }
 
+/* Hide all material icons in cards */
+.card .material-icons:not(.cardIndicators .material-icons) {
+    display: none !important;
+}
+
+/* Force hide default backgrounds */
+.cardImageContainer .cardImageIcon,
+.cardContent .material-icons.cardImageIcon,
+[class*="defaultCardBackground"] {
+    display: none !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
 /* Ensure card padding doesn't hide images */
 .cardPadder,
 .cardPadder-portrait,
@@ -1248,6 +1279,11 @@ picture img {
     display: block !important;
     width: 100% !important;
     height: 100% !important;
+}
+
+/* Source elements for responsive images */
+source {
+    display: block !important;
 }
 
 /* End of Disney Fantasy Jellyfin Theme */
