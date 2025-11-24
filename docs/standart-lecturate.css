@@ -1,0 +1,500 @@
+/**
+ * Standard Lecturate - Professional Jellyfin Skin
+ * A clean, highly readable design optimized for professional use
+ * Maintains close to standard appearance with enhanced readability
+ */
+
+/* ==========================================
+   TYPOGRAPHY & READABILITY
+   ========================================== */
+
+/* Import professional font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-optical-sizing: auto;
+}
+
+body {
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+}
+
+/* Enhanced text contrast for readability */
+.cardText,
+.listItemBody,
+.sectionTitle,
+.itemName {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.secondaryText,
+.cardText-secondary {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================
+   COLOR SCHEME (STANDARD JELLYFIN)
+   ========================================== */
+
+:root {
+    --accent-color: #00a4dc;
+    --accent-color-dark: #0081b3;
+    --background-primary: #101010;
+    --background-secondary: #181818;
+    --background-card: rgba(24, 24, 24, 0.8);
+    --border-color: rgba(255, 255, 255, 0.15);
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================
+   BACKGROUND & BASE
+   ========================================== */
+
+.backgroundContainer {
+    background-color: var(--background-primary);
+}
+
+.backdropContainer {
+    filter: blur(20px) brightness(0.4) saturate(1.1);
+}
+
+/* ==========================================
+   BUTTONS - CLEAN & PROFESSIONAL
+   ========================================== */
+
+.button-flat,
+.emby-button {
+    border-radius: 6px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.15s ease;
+}
+
+.raised,
+.emby-button.raised {
+    background: var(--accent-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.raised:hover,
+.emby-button.raised:hover {
+    background: var(--accent-color-dark);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+.raised:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Play/Resume buttons - prominent but professional */
+.mainDetailButtons .emby-button[title="Play"],
+.mainDetailButtons .emby-button[title="Resume"] {
+    background: var(--accent-color);
+    color: white;
+    font-weight: 600;
+    padding: 0.8em 2em;
+}
+
+.mainDetailButtons .emby-button[title="Play"]:hover,
+.mainDetailButtons .emby-button[title="Resume"]:hover {
+    background: var(--accent-color-dark);
+}
+
+/* ==========================================
+   CARDS - CLEAN & ORGANIZED
+   ========================================== */
+
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cardBox {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover .cardBox,
+.card:focus-within .cardBox {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.cardScalable {
+    border-radius: 8px 8px 0 0;
+}
+
+.cardImageContainer::after {
+    border-radius: 8px 8px 0 0;
+}
+
+/* Card text with clear hierarchy */
+.cardText {
+    padding: 0.8em;
+    font-weight: 500;
+    font-size: 0.95em;
+}
+
+.cardText-secondary {
+    padding: 0 0.8em 0.8em;
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+/* Progress indicators */
+.itemProgressBar {
+    background: rgba(255, 255, 255, 0.2);
+    height: 4px;
+    border-radius: 2px;
+}
+
+.itemProgressBarForeground {
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* ==========================================
+   HEADER - CLEAN & MINIMAL
+   ========================================== */
+
+.skinHeader {
+    background: rgba(16, 16, 16, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================
+   NAVIGATION & MENUS
+   ========================================== */
+
+.mainDrawer {
+    background: rgba(16, 16, 16, 0.98);
+    backdrop-filter: blur(20px);
+}
+
+.navMenuOption {
+    border-radius: 6px;
+    margin: 0.2em 0.5em;
+    transition: background 0.15s ease;
+}
+
+.navMenuOption:hover,
+.navMenuOption:focus {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navMenuOption.navMenuOption-selected {
+    background: var(--accent-color);
+    font-weight: 600;
+}
+
+/* ==========================================
+   INPUTS & FORMS
+   ========================================== */
+
+.emby-input,
+.emby-textarea,
+.emby-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.6em 0.8em;
+    color: var(--text-primary);
+    transition: all 0.15s ease;
+}
+
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 164, 220, 0.15);
+}
+
+.inputLabel,
+.selectLabel,
+.textareaLabel {
+    font-weight: 500;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.inputLabelFocused,
+.selectLabelFocused,
+.textareaLabelFocused {
+    color: var(--accent-color);
+}
+
+/* Checkboxes */
+.checkboxOutline {
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.emby-checkbox:checked + span + .checkboxOutline {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* ==========================================
+   DETAIL PAGES
+   ========================================== */
+
+#itemDetailPage {
+    padding: 2em;
+}
+
+.detailRibbon {
+    margin-bottom: 2em;
+}
+
+.itemName {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 0.3em;
+    color: white;
+    line-height: 1.2;
+}
+
+.itemName.subtitle {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 0.5em;
+    color: var(--text-secondary);
+}
+
+.itemMiscInfo {
+    font-size: 0.95em;
+    color: var(--text-secondary);
+    margin: 0.5em 0;
+}
+
+.mediaInfoItem {
+    padding: 0.3em 0.6em;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-right: 0.5em;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.mediaInfoOfficialRating {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    font-weight: 600;
+}
+
+.overview {
+    line-height: 1.7;
+    color: var(--text-primary);
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+/* ==========================================
+   LISTS - CLEAN & SCANNABLE
+   ========================================== */
+
+.listItem {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 0.5em;
+    transition: all 0.15s ease;
+}
+
+.listItem:hover,
+.listItem:focus-within {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.listItemBody {
+    padding: 1em;
+}
+
+.listItemImageButton {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* ==========================================
+   DIALOGS & OVERLAYS
+   ========================================== */
+
+.dialog {
+    background: rgba(16, 16, 16, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+}
+
+.dialogHeader {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5em;
+}
+
+.dialogContent {
+    padding: 1.5em;
+}
+
+/* ==========================================
+   SECTIONS & ORGANIZATION
+   ========================================== */
+
+.sectionTitle {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin: 1.5em 0 0.8em;
+    color: white;
+}
+
+.verticalSection {
+    margin-bottom: 2em;
+}
+
+/* ==========================================
+   SCROLLBARS - MINIMAL
+   ========================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================
+   PLAYER INTERFACE
+   ========================================== */
+
+.videoOsdBottom {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.osdControls {
+    padding: 1em;
+}
+
+.sliderBubble {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 6px;
+    padding: 0.5em 0.8em;
+    font-weight: 500;
+}
+
+/* ==========================================
+   HOME PAGE
+   ========================================== */
+
+#indexPage .section0 .itemsContainer {
+    gap: 1em;
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .itemName {
+        font-size: 1.8em;
+    }
+    
+    .sectionTitle {
+        font-size: 1.2em;
+    }
+    
+    #itemDetailPage {
+        padding: 1em;
+    }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .itemName {
+        font-size: 2.2em;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY ENHANCEMENTS
+   ========================================== */
+
+/* Focus indicators */
+*:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================
+   UTILITY CLASSES
+   ========================================== */
+
+.hide {
+    display: none !important;
+}
+
+.visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
