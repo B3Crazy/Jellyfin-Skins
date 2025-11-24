@@ -1,6 +1,6 @@
 /*
  * Disney+ Inspired Jellyfin Theme
- * Version: 1.0
+ * Version: 1.1
  * Author: Jellyfin-Skins
  * Description: A theme inspired by Disney+ design language with vibrant colors, smooth animations, and modern layout
  */
@@ -236,11 +236,25 @@ h1 {
 .itemTileImage {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     object-fit: cover;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .card:hover .cardImage,
 .card:hover .cardImageContainer img {
     transform: scale(1.08);
+}
+
+/* Ensure images load properly */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.lazy-image-container,
+.blurhash-container {
+    background: var(--card-background);
 }
 
 /* Card Overlay Gradient */
@@ -255,10 +269,17 @@ h1 {
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
+    z-index: 1;
 }
 
 .card:hover .cardImageContainer::after {
     opacity: 1;
+}
+
+/* Ensure images are behind overlay but still visible */
+.cardImageContainer img {
+    position: relative;
+    z-index: 0;
 }
 
 /* Card Text */
@@ -278,10 +299,9 @@ h1 {
 /* ================================
    BUTTONS
    ================================ */
-.button-flat,
+.button-flat:not(.paper-icon-button-light):not(.headerButton):not(.navMenuOption),
 .raisedButton,
-.raised,
-button {
+.raised {
     background: var(--button-primary) !important;
     color: var(--text-hover) !important;
     border: none !important;
@@ -294,10 +314,9 @@ button {
     box-shadow: 0 4px 15px rgba(0, 99, 229, 0.3) !important;
 }
 
-.button-flat:hover,
+.button-flat:not(.paper-icon-button-light):not(.headerButton):not(.navMenuOption):hover,
 .raisedButton:hover,
-.raised:hover,
-button:hover {
+.raised:hover {
     background: var(--button-hover) !important;
     transform: translateY(-2px);
     box-shadow: 0 6px 25px rgba(0, 99, 229, 0.5) !important;
@@ -323,16 +342,24 @@ button:hover {
 }
 
 /* Icon Buttons */
-.paper-icon-button-light,
-.itemSelectionPanel button {
+.paper-icon-button-light {
     background: rgba(255, 255, 255, 0.1) !important;
     border-radius: 50% !important;
     transition: all 0.3s ease !important;
+    padding: 8px !important;
 }
 
 .paper-icon-button-light:hover {
     background: rgba(255, 255, 255, 0.2) !important;
     transform: scale(1.1);
+}
+
+/* Ensure icon buttons remain clickable */
+.paper-icon-button-light,
+.btnCommand,
+.autoNumericShortcutButton {
+    pointer-events: auto !important;
+    cursor: pointer !important;
 }
 
 /* ================================
@@ -925,8 +952,7 @@ a, button, .card, .listItem, input, select, textarea {
 }
 
 /* Add subtle backdrop glow to active elements */
-.navMenuOption-selected::before,
-.button-flat::before {
+.navMenuOption-selected::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -934,6 +960,27 @@ a, button, .card, .listItem, input, select, textarea {
     opacity: 0.15;
     background: radial-gradient(circle, var(--disney-blue) 0%, transparent 70%);
     pointer-events: none;
+    z-index: -1;
+}
+
+/* Ensure all interactive elements remain clickable */
+button,
+a,
+.button-flat,
+.raisedButton,
+.paper-icon-button-light,
+.listItem,
+.card {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Fix for lazy loading images */
+.lazy,
+.lazy-image,
+[data-src] {
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 /* End of Disney+ Inspired Jellyfin Theme */
