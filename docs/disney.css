@@ -2,7 +2,7 @@
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       DISNEY FANTASY FOREST - JELLYFIN THEME                 ║
  * ║       Ein magisches Wald-Erlebnis für Jellyfin               ║
- * ║       Version 1.0.1                                          ║
+ * ║       Version 1.0.2                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -13,50 +13,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&family=Merriweather:wght@300;400;700&display=swap');
 
 :root {
-    /* === Farbpalette: Magischer Wald === */
-    --forest-deep-green: #0a3d2c;
-    --forest-moss-green: #1a5c42;
-    --forest-emerald: #2d8659;
-    --forest-sage: #4a9d7f;
-    --forest-mint: #6bc4a6;
+    /* === Mystische Fantasy Farbpalette === */
+    --mystic-deep-purple: #1a0d2e;
+    --mystic-royal-purple: #2d1b4e;
+    --mystic-violet: #4a2c6e;
+    --mystic-lavender: #7b5bb3;
+    --mystic-light-purple: #9d7ec9;
     
     /* === Magische Akzente === */
     --magic-gold: #ffd700;
-    --magic-fairy-blue: #89cff0;
-    --magic-purple: #9370db;
-    --magic-pink: #ff69b4;
-    --magic-sparkle: #fff5e1;
+    --magic-cyan: #00ffff;
+    --magic-purple: #b968ff;
+    --magic-pink: #ff6ec7;
+    --magic-sparkle: #fff0ff;
     
-    /* === Dunkle Waldelemente === */
-    --bark-brown: #3e2723;
-    --earth-brown: #5d4037;
-    --shadow-deep: #0d1b2a;
-    --night-sky: #1b263b;
+    /* === Dunkle Mystische Elemente === */
+    --shadow-black: #0a0514;
+    --night-blue: #0f1729;
+    --shadow-deep: #16192e;
+    --midnight-purple: #1e1433;
     
     /* === Helle Akzente === */
-    --moonlight: #e0f2f1;
-    --firefly-glow: #ffeb3b;
-    --dawn-pink: #ffc0cb;
+    --moonlight: #e8d5ff;
+    --starlight: #cffffc;
+    --aurora-pink: #ffc0e3;
     --mist-white: rgba(255, 255, 255, 0.1);
     
     /* === Primäre Theme-Farben === */
-    --accent: 106, 196, 166;
+    --accent: 185, 104, 255;
     --accent-color: rgb(var(--accent));
-    --primary-color: var(--forest-emerald);
-    --secondary-color: var(--magic-gold);
+    --primary-color: var(--mystic-violet);
+    --secondary-color: var(--magic-cyan);
     
     /* === Hintergrundfarben === */
-    --background-primary: var(--forest-deep-green);
-    --background-secondary: var(--forest-moss-green);
-    --background-overlay: rgba(10, 61, 44, 0.95);
-    --background-card: rgba(29, 92, 66, 0.7);
-    --background-hover: rgba(77, 157, 127, 0.3);
+    --background-primary: var(--mystic-deep-purple);
+    --background-secondary: var(--mystic-royal-purple);
+    --background-overlay: rgba(26, 13, 46, 0.95);
+    --background-card: rgba(45, 27, 78, 0.8);
+    --background-hover: rgba(123, 91, 179, 0.3);
     
     /* === Textfarben === */
     --text-primary: var(--moonlight);
-    --text-secondary: var(--forest-mint);
-    --text-muted: rgba(224, 242, 241, 0.6);
+    --text-secondary: var(--magic-cyan);
+    --text-muted: rgba(232, 213, 255, 0.6);
     --text-gold: var(--magic-gold);
+    
+    /* === JELLYFIN CSS VARIABLEN ÜBERSCHREIBEN === */
+    --theme-primary-color: var(--mystic-violet);
+    --theme-secondary-color: var(--magic-purple);
+    --theme-text-color: var(--moonlight);
+    --theme-text-color-secondary: var(--magic-cyan);
+    --theme-background-color: var(--mystic-deep-purple);
+    --theme-body-background: var(--shadow-black);
     
     /* === Schatten & Glühen === */
     --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.3);
@@ -240,10 +248,12 @@
 body {
     font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     background: linear-gradient(135deg, 
-        var(--forest-deep-green) 0%,
-        var(--forest-moss-green) 25%,
-        var(--night-sky) 75%,
-        var(--shadow-deep) 100%) !important;
+        var(--shadow-black) 0%,
+        var(--mystic-deep-purple) 20%,
+        var(--mystic-royal-purple) 40%,
+        var(--midnight-purple) 60%,
+        var(--night-blue) 80%,
+        var(--shadow-black) 100%) !important;
     background-size: 400% 400% !important;
     background-attachment: fixed !important;
     animation: gradient-shift 20s ease infinite;
@@ -266,7 +276,7 @@ body {
     background: transparent !important;
 }
 
-/* Magischer Hintergrund mit Waldmuster */
+/* Magischer Hintergrund mit mystischem Nebel */
 body::before {
     content: '';
     position: fixed;
@@ -275,9 +285,10 @@ body::before {
     right: 0;
     bottom: 0;
     background-image: 
-        radial-gradient(circle at 20% 80%, rgba(106, 196, 166, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(147, 112, 219, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 30%);
+        radial-gradient(circle at 20% 80%, rgba(185, 104, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 110, 199, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 60% 60%, rgba(255, 215, 0, 0.05) 0%, transparent 35%);
     pointer-events: none;
     z-index: 0;
 }
@@ -335,12 +346,12 @@ body::after {
 .headerTop,
 .navHeader {
     background: linear-gradient(180deg,
-        rgba(10, 61, 44, 0.95) 0%,
-        rgba(29, 92, 66, 0.85) 100%) !important;
+        rgba(26, 13, 46, 0.95) 0%,
+        rgba(45, 27, 78, 0.9) 100%) !important;
     backdrop-filter: blur(20px);
-    border-bottom: 2px solid var(--magic-gold);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5),
-                0 0 40px rgba(255, 215, 0, 0.2);
+    border-bottom: 2px solid var(--magic-purple);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7),
+                0 0 40px rgba(185, 104, 255, 0.3);
 }
 
 .headerTop {
@@ -364,10 +375,10 @@ body::after {
 .navMenuOption,
 .button-flat {
     background: linear-gradient(135deg,
-        rgba(106, 196, 166, 0.2) 0%,
-        rgba(77, 157, 127, 0.2) 100%);
+        rgba(185, 104, 255, 0.2) 0%,
+        rgba(123, 91, 179, 0.2) 100%);
     color: var(--text-primary) !important;
-    border: 1px solid rgba(106, 196, 166, 0.3);
+    border: 1px solid rgba(185, 104, 255, 0.3);
     border-radius: var(--border-radius-medium);
     padding: 0.75rem 1.5rem;
     margin: 0 0.5rem;
@@ -397,11 +408,11 @@ body::after {
 .navMenuOption:hover,
 .button-flat:hover {
     background: linear-gradient(135deg,
-        rgba(106, 196, 166, 0.4) 0%,
-        rgba(77, 157, 127, 0.4) 100%);
-    border-color: var(--magic-gold);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4),
-                0 4px 12px rgba(0, 0, 0, 0.3);
+        rgba(185, 104, 255, 0.5) 0%,
+        rgba(123, 91, 179, 0.5) 100%);
+    border-color: var(--magic-cyan);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5),
+                0 4px 12px rgba(0, 0, 0, 0.4);
     transform: translateY(-2px);
 }
 
@@ -421,11 +432,12 @@ body::after {
 .headerButton.headerButtonActive,
 .navMenuOption-selected {
     background: linear-gradient(135deg,
-        var(--forest-emerald) 0%,
-        var(--forest-sage) 100%);
-    border-color: var(--magic-gold);
-    box-shadow: var(--glow-gold),
-                inset 0 2px 8px rgba(0, 0, 0, 0.3);
+        var(--mystic-violet) 0%,
+        var(--mystic-lavender) 100%);
+    border-color: var(--magic-cyan);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6),
+                0 0 40px rgba(185, 104, 255, 0.4),
+                inset 0 2px 8px rgba(0, 0, 0, 0.4);
     font-weight: 600;
 }
 
@@ -444,9 +456,9 @@ input[type="password"],
 input[type="email"],
 input[type="search"] {
     background: linear-gradient(135deg,
-        rgba(29, 92, 66, 0.6) 0%,
-        rgba(10, 61, 44, 0.8) 100%) !important;
-    border: 2px solid rgba(106, 196, 166, 0.4);
+        rgba(45, 27, 78, 0.7) 0%,
+        rgba(26, 13, 46, 0.9) 100%) !important;
+    border: 2px solid rgba(185, 104, 255, 0.5);
     border-radius: var(--border-radius-large);
     color: var(--text-primary) !important;
     padding: 1rem 3rem 1rem 1.5rem;
@@ -462,12 +474,13 @@ input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="search"]:focus {
     outline: none;
-    border-color: var(--magic-gold);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3),
+    border-color: var(--magic-cyan);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5),
+                0 0 40px rgba(185, 104, 255, 0.3),
                 inset 0 2px 8px rgba(0, 0, 0, 0.3);
     background: linear-gradient(135deg,
-        rgba(29, 92, 66, 0.8) 0%,
-        rgba(10, 61, 44, 0.9) 100%) !important;
+        rgba(45, 27, 78, 0.9) 0%,
+        rgba(26, 13, 46, 0.95) 100%) !important;
 }
 
 #txtSearch::placeholder,
@@ -496,12 +509,12 @@ input[type="search"]:focus {
 .navDrawer,
 .emby-drawer {
     background: linear-gradient(180deg,
-        rgba(10, 61, 44, 0.98) 0%,
-        rgba(27, 38, 59, 0.98) 100%) !important;
+        rgba(26, 13, 46, 0.98) 0%,
+        rgba(22, 25, 46, 0.98) 100%) !important;
     backdrop-filter: blur(30px);
-    border-right: 3px solid var(--magic-gold);
-    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.6),
-                inset -2px 0 20px rgba(255, 215, 0, 0.1);
+    border-right: 3px solid var(--magic-purple);
+    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.8),
+                inset -2px 0 20px rgba(185, 104, 255, 0.15);
 }
 
 .navMenuOption {
@@ -512,23 +525,23 @@ input[type="search"]:focus {
 
 .navMenuOption i,
 .material-icons {
-    color: var(--magic-gold);
+    color: var(--magic-cyan);
     transition: all var(--transition-fast);
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
 }
 
 .navMenuOption:hover i {
-    color: var(--magic-fairy-blue);
+    color: var(--magic-purple);
     transform: scale(1.2);
     animation: glow-pulse 2s infinite;
 }
 
 .navMenuOption-selected {
     background: linear-gradient(90deg,
-        rgba(106, 196, 166, 0.3) 0%,
+        rgba(185, 104, 255, 0.4) 0%,
         transparent 100%);
-    border-left: 4px solid var(--magic-gold);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    border-left: 4px solid var(--magic-cyan);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
 }
 
 /* ============================================================
@@ -547,9 +560,9 @@ input[type="search"]:focus {
 .squareCard,
 .backdropCard {
     background: linear-gradient(135deg,
-        rgba(29, 92, 66, 0.6) 0%,
-        rgba(10, 61, 44, 0.8) 100%) !important;
-    border: 2px solid rgba(106, 196, 166, 0.3) !important;
+        rgba(45, 27, 78, 0.7) 0%,
+        rgba(26, 13, 46, 0.9) 100%) !important;
+    border: 2px solid rgba(185, 104, 255, 0.4) !important;
     border-radius: var(--border-radius-large) !important;
     padding: 0 !important;
     transition: all var(--transition-medium);
@@ -581,13 +594,13 @@ input[type="search"]:focus {
 .card:hover,
 .cardBox:hover {
     transform: translateY(-8px) scale(1.02);
-    border-color: var(--magic-gold);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(255, 215, 0, 0.3),
-                0 0 60px rgba(106, 196, 166, 0.2);
+    border-color: var(--magic-cyan);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(0, 255, 255, 0.5),
+                0 0 60px rgba(185, 104, 255, 0.3);
     background: linear-gradient(135deg,
-        rgba(45, 134, 89, 0.7) 0%,
-        rgba(26, 92, 66, 0.9) 100%);
+        rgba(74, 44, 110, 0.8) 0%,
+        rgba(45, 27, 78, 0.95) 100%);
 }
 
 /* Karten-Bilder */
@@ -609,8 +622,8 @@ input[type="search"]:focus {
     bottom: 0;
     background: linear-gradient(180deg,
         transparent 0%,
-        rgba(10, 61, 44, 0.4) 70%,
-        rgba(10, 61, 44, 0.8) 100%);
+        rgba(26, 13, 46, 0.5) 70%,
+        rgba(26, 13, 46, 0.9) 100%);
     opacity: 0;
     transition: opacity var(--transition-medium);
     pointer-events: none;
@@ -669,8 +682,8 @@ input[type="search"]:focus {
 .cardFooter {
     background: linear-gradient(180deg,
         transparent 0%,
-        rgba(10, 61, 44, 0.6) 30%,
-        rgba(10, 61, 44, 0.9) 100%) !important;
+        rgba(26, 13, 46, 0.7) 30%,
+        rgba(26, 13, 46, 0.95) 100%) !important;
     padding: 0.5rem 0.75rem !important;
     border-radius: 0 0 var(--border-radius-large) var(--border-radius-large) !important;
 }
@@ -685,10 +698,10 @@ input[type="search"]:focus {
 .btnNotifications,
 .paper-icon-button-light {
     background: linear-gradient(135deg,
-        var(--forest-emerald) 0%,
-        var(--forest-sage) 100%) !important;
+        var(--mystic-violet) 0%,
+        var(--mystic-lavender) 100%) !important;
     color: var(--text-primary) !important;
-    border: 2px solid var(--magic-gold);
+    border: 2px solid var(--magic-cyan);
     border-radius: var(--border-radius-medium);
     padding: 0.875rem 2rem;
     font-weight: 600;
@@ -722,12 +735,13 @@ input[type="search"]:focus {
 .raised:hover,
 .emby-button:hover {
     background: linear-gradient(135deg,
-        var(--forest-sage) 0%,
-        var(--forest-mint) 100%) !important;
-    box-shadow: var(--glow-gold),
+        var(--mystic-lavender) 0%,
+        var(--magic-purple) 100%) !important;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6),
+                0 0 40px rgba(185, 104, 255, 0.4),
                 var(--shadow-medium);
     transform: translateY(-4px) scale(1.05);
-    border-color: var(--magic-fairy-blue);
+    border-color: var(--magic-purple);
 }
 
 .button-submit:hover::before,
@@ -774,25 +788,27 @@ input[type="search"]:focus {
 .btnPlay,
 .mainDetailButtons .emby-button {
     background: linear-gradient(135deg,
-        var(--magic-gold) 0%,
-        rgba(255, 215, 0, 0.8) 100%) !important;
-    color: var(--forest-deep-green) !important;
-    border: 3px solid var(--magic-sparkle);
+        var(--magic-cyan) 0%,
+        rgba(0, 255, 255, 0.8) 100%) !important;
+    color: var(--shadow-black) !important;
+    border: 3px solid var(--starlight);
     font-size: 1.1rem;
     font-weight: 700;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6),
-                0 8px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 35px rgba(0, 255, 255, 0.8),
+                0 0 50px rgba(185, 104, 255, 0.4),
+                0 8px 24px rgba(0, 0, 0, 0.5);
     animation: glow-pulse 3s infinite;
 }
 
 .itemAction.textActionButton:hover,
 .btnPlay:hover {
     background: linear-gradient(135deg,
-        var(--magic-sparkle) 0%,
-        var(--magic-gold) 100%) !important;
+        var(--starlight) 0%,
+        var(--magic-cyan) 100%) !important;
     transform: translateY(-6px) scale(1.1);
-    box-shadow: 0 0 50px rgba(255, 215, 0, 0.8),
-                0 12px 32px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 60px rgba(0, 255, 255, 1),
+                0 0 80px rgba(185, 104, 255, 0.6),
+                0 12px 32px rgba(0, 0, 0, 0.6);
 }
 
 /* ============================================================
@@ -1728,18 +1744,19 @@ body,
 }
 
 .sectionTitle {
-    color: var(--magic-gold) !important;
+    color: var(--magic-cyan) !important;
     font-family: 'Cinzel', serif !important;
     font-size: 1.8rem !important;
     font-weight: 700 !important;
     text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9),
-                 0 0 25px rgba(255, 215, 0, 0.4) !important;
+                 0 0 30px rgba(0, 255, 255, 0.6),
+                 0 0 50px rgba(185, 104, 255, 0.3) !important;
     margin: 2rem 0 1rem 0 !important;
 }
 
 .sectionTitleContainer {
     background: transparent !important;
-    border-bottom: 2px solid rgba(255, 215, 0, 0.3) !important;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.4) !important;
     padding-bottom: 0.5rem !important;
 }
 
@@ -1795,20 +1812,21 @@ body,
 /* Hover Effects für Cards */
 .cardOverlayButton {
     background: linear-gradient(135deg,
-        var(--magic-gold) 0%,
-        rgba(255, 215, 0, 0.8) 100%) !important;
-    color: var(--forest-deep-green) !important;
-    border: 2px solid var(--magic-sparkle) !important;
+        var(--magic-cyan) 0%,
+        rgba(0, 255, 255, 0.8) 100%) !important;
+    color: var(--shadow-black) !important;
+    border: 2px solid var(--starlight) !important;
     font-weight: 700 !important;
     text-shadow: none !important;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6),
-                0 4px 16px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.7),
+                0 4px 16px rgba(0, 0, 0, 0.5) !important;
 }
 
 .cardOverlayButton:hover {
     transform: scale(1.05) !important;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8),
-                0 6px 20px rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.9),
+                0 0 60px rgba(185, 104, 255, 0.5),
+                0 6px 20px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* Indicator Dots */
