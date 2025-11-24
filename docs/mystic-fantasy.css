@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.0                                          ║
+ * ║       Version 1.0.1                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -609,22 +609,13 @@ input[type="search"]:focus {
     --card-width: 14vw;
 }
 
-/* Banner Backdrop - ganz oben, volle Breite */
 .itemBackdrop {
     border-radius: var(--rounding-default) !important;
     overflow: hidden !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    height: 55vh !important;
-    z-index: 0 !important;
-    opacity: 0.3 !important;
+    opacity: 0.4 !important;
     filter: brightness(0.7) !important;
 }
 
-/* Titel - zentriert über Banner */
 .itemName,
 .itemDetailPageTitle {
     font-family: 'Cinzel', serif !important;
@@ -633,60 +624,12 @@ input[type="search"]:focus {
     color: white !important;
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9),
                  0 0 40px var(--jf-purple-light) !important;
-    margin: 0 auto 2rem auto !important;
-    padding-top: 2rem !important;
-    position: relative !important;
-    z-index: 10 !important;
-    text-align: center !important;
-    width: 100% !important;
-    display: block !important;
-    clear: both !important;
-}
-
-/* Ribbon Container - für Poster und Infos */
-.detailRibbon {
-    background: transparent !important;
-    position: relative !important;
-    padding-top: 0 !important;
-    clear: both !important;
-}
-
-/* Poster - float left */
-.detailImageContainer {
-    position: relative !important;
-    float: left !important;
-    display: block !important;
-    margin-right: 2rem !important;
-    margin-bottom: 1rem !important;
-    z-index: 5 !important;
-}
-
-/* Info Container - neben Poster */
-.infoWrapper {
-    position: relative !important;
-    z-index: 5 !important;
-    display: block !important;
-    overflow: hidden !important;
 }
 
 .detailLogo {
     filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.8))
-            drop-shadow(0 0 40px var(--jf-purple-light));
+            drop-shadow(0 0 40px var(--jf-purple-light)) !important;
     animation: float 6s ease-in-out infinite;
-    margin-bottom: 1rem !important;
-    position: relative !important;
-}
-
-.itemMiscInfo,
-.detailPageSecondaryContainer {
-    margin-top: 1rem !important;
-    position: relative !important;
-    z-index: 5 !important;
-}
-
-.detailPagePrimaryContainer {
-    position: relative !important;
-    z-index: 5 !important;
 }
 
 /* ============================================================
