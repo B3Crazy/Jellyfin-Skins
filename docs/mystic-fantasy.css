@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.1                                          ║
+ * ║       Version 1.0.0                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -614,10 +614,33 @@ input[type="search"]:focus {
 }
 
 .detailRibbon {
-    height: 60vh;
+    height: auto !important;
+    min-height: 60vh;
     margin-top: 0;
     background: transparent;
     position: static !important;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.detailImageContainer {
+    flex-shrink: 0;
+    width: auto !important;
+    max-width: 400px;
+}
+
+.detailImageContainer .card {
+    margin: 0 !important;
+}
+
+.infoWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 2rem;
 }
 
 .itemBackdrop {
@@ -629,6 +652,7 @@ input[type="search"]:focus {
     filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.8))
             drop-shadow(0 0 40px var(--jf-purple-light));
     animation: float 6s ease-in-out infinite;
+    margin-bottom: 1rem !important;
 }
 
 .itemName,
@@ -639,9 +663,16 @@ input[type="search"]:focus {
     color: white;
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9),
                  0 0 40px var(--jf-purple-light);
-    margin-top: 1rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
     z-index: 10;
     position: relative;
+}
+
+.itemMiscInfo,
+.detailPageSecondaryContainer {
+    margin-top: 1rem !important;
+    clear: both;
 }
 
 /* ============================================================
@@ -885,6 +916,19 @@ tr:hover {
     .itemName,
     .itemDetailPageTitle {
         font-size: 2.5rem;
+    }
+    
+    .detailRibbon {
+        flex-direction: column;
+    }
+    
+    .detailImageContainer {
+        max-width: 100%;
+    }
+    
+    .infoWrapper {
+        padding-left: 0;
+        padding-top: 1rem;
     }
 }
 
