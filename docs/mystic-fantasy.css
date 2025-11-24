@@ -435,6 +435,9 @@ input[type="search"]:focus {
     font-weight: 600 !important;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
     margin: 0.75rem 0;
+    padding: 0.5rem 0;
+    z-index: 2;
+    position: relative;
 }
 
 .cardText-secondary,
@@ -442,6 +445,8 @@ input[type="search"]:focus {
     color: var(--jf-cyan-light) !important;
     font-size: 0.9rem;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+    z-index: 2;
+    position: relative;
 }
 
 /* ============================================================
@@ -499,6 +504,9 @@ input[type="search"]:focus {
     font-size: 1.6em;
     font-family: 'Cinzel', serif;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    margin-top: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    padding-top: 0.5rem;
 }
 
 #indexPage .sectionTitle::before,
@@ -614,6 +622,9 @@ input[type="search"]:focus {
     color: white;
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9),
                  0 0 40px var(--jf-purple-light);
+    margin-top: 1rem !important;
+    z-index: 10;
+    position: relative;
 }
 
 /* ============================================================
