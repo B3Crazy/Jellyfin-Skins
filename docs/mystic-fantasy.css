@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.0                                          ║
+ * ║       Version 1.0.1                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -103,11 +103,13 @@ div[data-role="page"].page {
     mask-image: linear-gradient(to top, black 1em calc(100% - 2em), transparent);
     -webkit-mask-image: linear-gradient(to top, black 1em calc(100% - 2em), transparent);
     padding: 2em 0 !important;
+    margin-top: 60px !important;
 }
 
 .mainAnimatedPages.skinBody {
     height: 100%;
     position: relative;
+    padding-top: 60px !important;
 }
 
 /* ============================================================
@@ -125,17 +127,31 @@ div[data-role="page"].page {
     backdrop-filter: blur(var(--filter-blur-default));
     border-bottom: 2px solid var(--jf-purple-light);
     box-shadow: 0 0 15px black, 0 0 30px var(--accent1-light-opacity1);
+    position: relative;
+    z-index: 1000;
+    padding: 0.5rem 1rem !important;
+    margin-bottom: 1rem !important;
 }
 
 /* Logo */
 .headerLogo {
     filter: drop-shadow(0 0 10px var(--jf-cyan-light));
     transition: all var(--transition-time-default);
+    max-height: 40px !important;
+    margin: 0.5rem 0 !important;
 }
 
 .headerLogo:hover {
     filter: drop-shadow(0 0 20px var(--jf-cyan-light));
     transform: scale(1.05);
+}
+
+/* Header Buttons - prevent overlap */
+.headerButton,
+.headerRight,
+.headerUserButton {
+    z-index: 1001;
+    position: relative;
 }
 
 /* ============================================================
@@ -323,6 +339,7 @@ input[type="search"]:focus {
 .emby-scroller {
     overflow: visible !important;
     margin-top: 0.5em;
+    clear: both;
 }
 
 .card {
@@ -330,6 +347,7 @@ input[type="search"]:focus {
     position: relative;
     overflow: visible !important;
     transition: all var(--transition-time-default);
+    margin-top: 0.5rem !important;
 }
 
 .cardBox {
