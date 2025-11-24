@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.0                                          ║
+ * ║       Version 1.0.1                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -607,72 +607,34 @@ input[type="search"]:focus {
 
 #itemDetailPage {
     --card-width: 14vw;
-    display: flex !important;
-    flex-direction: column !important;
-    overflow-y: auto !important;
-    padding: 3.2em !important;
 }
 
 .detailRibbon {
-    height: auto !important;
-    min-height: 60vh !important;
-    margin-top: 0 !important;
     background: transparent !important;
-    position: relative !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    gap: 3rem !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    padding-left: 0 !important;
 }
 
 .detailImageContainer {
     position: relative !important;
-    flex-shrink: 0 !important;
-    flex-grow: 0 !important;
-    width: 300px !important;
-    min-width: 300px !important;
-    max-width: 300px !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    margin-right: 2rem !important;
-}
-
-.detailImageContainer .card {
-    margin: 0 !important;
-    position: relative !important;
-    display: block !important;
-    visibility: visible !important;
+    z-index: 2 !important;
 }
 
 .infoWrapper {
     position: relative !important;
-    flex: 1 !important;
-    flex-shrink: 1 !important;
-    flex-grow: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    min-width: 0 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    padding-left: 0 !important;
-    margin-left: 0 !important;
+    z-index: 3 !important;
+    padding-left: 2rem !important;
 }
 
 .itemBackdrop {
-    border-radius: var(--rounding-default);
-    overflow: hidden;
+    border-radius: var(--rounding-default) !important;
+    overflow: hidden !important;
     position: absolute !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50vh;
-    z-index: -1 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 60vh !important;
+    z-index: 0 !important;
+    opacity: 0.4 !important;
 }
 
 .detailLogo {
@@ -694,26 +656,19 @@ input[type="search"]:focus {
     margin-top: 0 !important;
     margin-bottom: 1rem !important;
     position: relative !important;
-    z-index: 10 !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    z-index: 5 !important;
 }
 
 .itemMiscInfo,
 .detailPageSecondaryContainer {
     margin-top: 1rem !important;
     position: relative !important;
-    z-index: 10 !important;
-    display: block !important;
-    visibility: visible !important;
+    z-index: 5 !important;
 }
 
 .detailPagePrimaryContainer {
     position: relative !important;
-    z-index: 10 !important;
-    display: block !important;
-    visibility: visible !important;
+    z-index: 5 !important;
 }
 
 /* ============================================================
@@ -959,25 +914,8 @@ tr:hover {
         font-size: 2rem !important;
     }
     
-    .detailRibbon {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 1.5rem !important;
-    }
-    
-    .detailImageContainer {
-        width: 250px !important;
-        min-width: 250px !important;
-        max-width: 250px !important;
-        margin: 0 auto !important;
-        display: block !important;
-        visibility: visible !important;
-    }
-    
     .infoWrapper {
-        width: 100% !important;
-        display: flex !important;
-        visibility: visible !important;
+        padding-left: 1rem !important;
     }
 }
 
