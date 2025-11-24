@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.1.6
+ * Version: 2.1.7
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -318,53 +318,29 @@ h1 {
     background: transparent !important;
 }
 
-/* Hide all default icons - aggressive approach */
-.cardImageIcon,
-.material-icons.cardImageIcon,
-span.cardImageIcon,
-i.cardImageIcon,
-.cardIndicators .material-icons,
-.defaultCardBackground,
-.defaultCardBackground1,
-.defaultCardBackground2,
-.defaultCardBackground3,
-.defaultCardBackground4,
-.defaultCardBackground5,
-.cardContent .material-icons:not(.playedIndicator):not(.countIndicator) {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
-    position: absolute !important;
-    left: -9999px !important;
-}
-
-/* Specifically target the folder/video icons */
-.material-icons.folder,
-.material-icons.video_library,
-.material-icons.theaters,
-.material-icons.collections {
+/* Only hide default background when actual image is present */
+.cardImageContainer:has(img[src]) .cardImageIcon,
+.cardImageContainer:has(img[src]) .defaultCardBackground {
     display: none !important;
 }
 
-/* All image elements */
+/* Hide placeholder icons only when they're the only content */
+.cardImageIcon:only-child {
+    opacity: 0.3 !important;
+}
+
+/* All image elements - simplified and unblocked */
 .cardImage,
 .cardImageContainer img,
 .itemTileImage,
 .cardContent img,
 .cardScalable img,
 .cardOverlayContainer img {
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
     object-fit: cover !important;
     width: 100% !important;
     height: 100% !important;
     display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    background: transparent !important;
-    position: relative !important;
-    z-index: 1 !important;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .card:hover .cardImage,
@@ -372,48 +348,30 @@ i.cardImageIcon,
     transform: scale(1.08);
 }
 
-/* Ensure images load properly */
-img {
-    max-width: 100% !important;
-    height: auto !important;
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
+/* Allow normal image loading behavior */
 .lazy-image-container,
 .blurhash-container {
-    background: transparent !important;
     position: relative;
-    overflow: hidden !important;
 }
 
-/* Force images to load immediately */
-.lazy-image-container::before,
-.blurhash-container::before {
-    display: none !important;
-}
-
-/* Ensure lazy images are visible */
-.lazy,
-.lazy-image,
-img[loading="lazy"],
-img[data-src],
-img[src] {
-    opacity: 1 !important;
-    visibility: visible !important;
+/* Ensure loaded images are visible */
+img[src]:not([src=""]) {
     display: block !important;
 }
 
-/* Blurhash placeholder */
+/* Blurhash placeholder - allow normal behavior */
 .blurhash-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    transition: opacity 0.3s ease;
+}
+
+/* Hide blurhash after image loads */
+.cardImageContainer:has(img[src]) .blurhash-canvas {
     opacity: 0 !important;
-    display: none !important;
 }
 
 /* Card content properly layered */
@@ -1189,117 +1147,12 @@ a,
     cursor: pointer;
 }
 
-/* Fix for lazy loading images */
-.lazy,
-.lazy-image,
-[data-src] {
-    opacity: 1 !important;
-    transition: opacity 0.3s ease;
-}
-
-/* Ensure all image types are visible */
-.itemTileImage,
-.cardImage-img,
-.lazy-image-fadein-fast,
-.coveredImage,
-.itemBackdropImage {
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-}
-
-/* Portrait and landscape images */
-.portraitImage,
-.landscapeImage,
-.squareImage {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* Jellyfin specific image containers */
-.cardOverlayContainer-withhovermenu,
+/* Transparent backgrounds for card containers */
 .cardOverlayContainer,
 .cardImageContainer-portrait,
 .cardImageContainer-landscape,
 .cardImageContainer-square {
     background: transparent !important;
-    opacity: 1 !important;
-}
-
-/* Image wrapper elements */
-.cardContent-shadow,
-.cardContent-button,
-.itemAction {
-    opacity: 1 !important;
-    background: transparent !important;
-}
-
-/* Image placeholders should not hide images */
-.cardImageContainer .lazy-image-fadein-fast,
-.lazy-image-fadein-fast,
-.lazy-image-fadein {
-    animation: none !important;
-    opacity: 1 !important;
-}
-
-/* Disable blurhash fade effects */
-.blurhashed {
-    opacity: 1 !important;
-}
-
-/* Card image wrapper */
-.cardOverlayContainer,
-.cardOverlayButton {
-    background: transparent !important;
-}
-
-/* Prevent gray background on cards */
-.card-withinPortraitContainer,
-.card-withinSquareContainer {
-    background: transparent !important;
-}
-
-/* Hide default folder/collection icons when image is present */
-.cardImageIcon {
-    display: none !important;
-}
-
-/* Hide all material icons in cards */
-.card .material-icons:not(.cardIndicators .material-icons) {
-    display: none !important;
-}
-
-/* Force hide default backgrounds */
-.cardImageContainer .cardImageIcon,
-.cardContent .material-icons.cardImageIcon,
-[class*="defaultCardBackground"] {
-    display: none !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-}
-
-/* Ensure card padding doesn't hide images */
-.cardPadder,
-.cardPadder-portrait,
-.cardPadder-square {
-    padding-bottom: 150% !important;
-    background: transparent !important;
-}
-
-/* All picture elements */
-picture,
-picture img {
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* Source elements for responsive images */
-source {
-    display: block !important;
 }
 
 /* End of Disney Fantasy Jellyfin Theme */
