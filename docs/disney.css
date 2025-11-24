@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.0
+ * Version: 2.1
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -308,7 +308,7 @@ h1 {
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
 }
 
 .card:hover,
@@ -354,11 +354,34 @@ h1 {
 img {
     max-width: 100%;
     height: auto;
+    display: block;
+    position: relative;
 }
 
 .lazy-image-container,
 .blurhash-container {
     background: var(--card-background);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure lazy images are visible */
+.lazy,
+.lazy-image,
+img[loading="lazy"],
+img[data-src] {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Blurhash placeholder */
+.blurhash-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
 /* Card Overlay Gradient */
@@ -384,6 +407,24 @@ img {
 .cardImageContainer img {
     position: relative;
     z-index: 0;
+}
+
+/* Fix image container stacking */
+.cardImageContainer {
+    z-index: 0;
+}
+
+.cardImage {
+    z-index: 0;
+}
+
+/* Ensure card content is properly layered */
+.cardContent,
+.cardText,
+.cardTitle,
+.cardFooter {
+    position: relative;
+    z-index: 3;
 }
 
 /* Card Text */
