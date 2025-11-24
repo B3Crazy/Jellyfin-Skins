@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.1.14
+ * Version: 2.1.15
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -1251,97 +1251,91 @@ picture img,
 }
 
 /* ================================
-   NUCLEAR OPTION - FORCE IMAGES TO SHOW
+   ABSOLUTE FINAL FIX - FORCE ALL IMAGES
    ================================ */
 
-/* Remove ALL potential blockers */
-.card,
-.cardBox,
-.cardScalable,
-.cardImageContainer,
-.cardContent,
-.cardContent-button,
-.cardOverlayContainer,
-.itemAction,
-.lazy-image-container,
-.blurhash-container,
-picture {
-    background: none !important;
+/* Step 1: Remove all backgrounds that might block images */
+.card, .cardBox, .cardScalable, .cardImageContainer,
+.cardContent, .cardContent-button, .cardOverlayContainer,
+.itemAction, .lazy-image-container, .blurhash-container,
+picture, .cardPadder, .cardImageContainer-portrait,
+.cardImageContainer-landscape, .cardImageContainer-square {
+    background: transparent !important;
     background-image: none !important;
     background-color: transparent !important;
 }
 
-/* Force every possible image selector to display */
-img,
-.card img,
-.cardBox img,
-.cardImage,
-.cardImageContainer img,
-.cardScalable img,
-.lazy-image-fadein-fast,
-.itemTileImage,
-img[src],
-img[src*="Items"],
-img[src*="Primary"],
-.cardContent img,
-.cardOverlayContainer img,
-.cardImageContainer picture img,
-picture > img {
+/* Step 2: FORCE images - use wildcard to catch everything */
+img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 9999 !important;
+}
+
+/* Step 3: Specific selectors for Jellyfin */
+.card img, .cardBox img, .cardImage,
+.cardImageContainer img, .cardScalable img,
+.lazy-image-fadein-fast, .itemTileImage,
+.cardContent img, .cardOverlayContainer img,
+.cardImageContainer picture img, picture > img,
+img[src], img[src*="Items"], img[src*="Primary"],
+img[loading], img[loading="lazy"] {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
     position: relative !important;
-    z-index: 999 !important;
-    max-width: 100% !important;
-    max-height: none !important;
+    z-index: 9999 !important;
     width: 100% !important;
     height: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
     object-fit: cover !important;
+    filter: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    animation: none !important;
 }
 
-/* Make sure nothing is hiding images */
-.cardImageContainer,
-.cardScalable,
-.lazy-image-container,
-picture {
+/* Step 4: Remove blurhash completely */
+.blurhash-canvas, .blurhash-container {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Step 5: Remove pseudo elements from cards */
+.card::before, .card::after,
+.cardBox::before, .cardBox::after,
+.cardImageContainer::before, .cardImageContainer::after,
+.cardScalable::before, .cardScalable::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Step 6: Ensure containers don't interfere */
+.cardImageContainer, .cardScalable,
+.lazy-image-container, picture {
     display: block !important;
     width: 100% !important;
     height: 100% !important;
     position: relative !important;
+    overflow: visible !important;
 }
 
-/* Ensure no filters or transforms hide images */
-.card img,
-.cardBox img,
-.cardImageContainer img {
-    filter: none !important;
-    transform: none !important;
-    clip-path: none !important;
-    mask: none !important;
-    -webkit-mask: none !important;
-}
-
-/* Force lazy loaded images to show immediately */
-img[loading="lazy"],
-img.lazy,
-.lazy-image-fadein-fast {
-    opacity: 1 !important;
-    animation: none !important;
-}
-
-/* Blurhash should never cover images */
-.blurhash-canvas {
+/* Step 7: Remove default card backgrounds */
+.defaultCardBackground, .defaultCardBackground1,
+.defaultCardBackground2, .defaultCardBackground3,
+.defaultCardBackground4, .defaultCardBackground5 {
     display: none !important;
 }
 
-/* No background gradients on cards that might hide images */
-.card::before,
-.card::after,
-.cardBox::before,
-.cardBox::after,
-.cardImageContainer::before,
-.cardImageContainer::after {
+/* Step 8: Hide icons completely */
+.cardImageIcon, .cardImageContainer .material-icons,
+.cardImageContainer > i, .cardImageContainer > span.material-icons,
+.cardScalable > i, .cardScalable > span.material-icons {
     display: none !important;
+    visibility: hidden !important;
 }
 
 /* End of Disney Fantasy Jellyfin Theme */
