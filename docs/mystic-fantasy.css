@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.1                                          ║
+ * ║       Version 1.0.0                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -609,32 +609,7 @@ input[type="search"]:focus {
     --card-width: 14vw;
 }
 
-.detailRibbon {
-    background: transparent !important;
-    position: relative !important;
-    padding-top: 2rem !important;
-    text-align: center !important;
-}
-
-.detailImageContainer {
-    position: relative !important;
-    display: inline-block !important;
-    float: none !important;
-    margin-right: 2rem !important;
-    margin-bottom: 1rem !important;
-    z-index: 2 !important;
-    vertical-align: top !important;
-}
-
-.infoWrapper {
-    position: relative !important;
-    z-index: 2 !important;
-    display: inline-block !important;
-    text-align: left !important;
-    vertical-align: top !important;
-    max-width: calc(100% - 350px) !important;
-}
-
+/* Banner Backdrop - ganz oben, volle Breite */
 .itemBackdrop {
     border-radius: var(--rounding-default) !important;
     overflow: hidden !important;
@@ -644,9 +619,54 @@ input[type="search"]:focus {
     right: 0 !important;
     width: 100% !important;
     height: 55vh !important;
-    z-index: 1 !important;
+    z-index: 0 !important;
     opacity: 0.3 !important;
     filter: brightness(0.7) !important;
+}
+
+/* Titel - zentriert über Banner */
+.itemName,
+.itemDetailPageTitle {
+    font-family: 'Cinzel', serif !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: white !important;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9),
+                 0 0 40px var(--jf-purple-light) !important;
+    margin: 0 auto 2rem auto !important;
+    padding-top: 2rem !important;
+    position: relative !important;
+    z-index: 10 !important;
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+    clear: both !important;
+}
+
+/* Ribbon Container - für Poster und Infos */
+.detailRibbon {
+    background: transparent !important;
+    position: relative !important;
+    padding-top: 0 !important;
+    clear: both !important;
+}
+
+/* Poster - float left */
+.detailImageContainer {
+    position: relative !important;
+    float: left !important;
+    display: block !important;
+    margin-right: 2rem !important;
+    margin-bottom: 1rem !important;
+    z-index: 5 !important;
+}
+
+/* Info Container - neben Poster */
+.infoWrapper {
+    position: relative !important;
+    z-index: 5 !important;
+    display: block !important;
+    overflow: hidden !important;
 }
 
 .detailLogo {
@@ -657,33 +677,16 @@ input[type="search"]:focus {
     position: relative !important;
 }
 
-.itemName,
-.itemDetailPageTitle {
-    font-family: 'Cinzel', serif !important;
-    font-size: 2.5rem !important;
-    font-weight: 700 !important;
-    color: white !important;
-    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9),
-                 0 0 40px var(--jf-purple-light) !important;
-    margin-top: 0 !important;
-    margin-bottom: 2rem !important;
-    position: relative !important;
-    z-index: 3 !important;
-    text-align: center !important;
-    width: 100% !important;
-    display: block !important;
-}
-
 .itemMiscInfo,
 .detailPageSecondaryContainer {
     margin-top: 1rem !important;
     position: relative !important;
-    z-index: 3 !important;
+    z-index: 5 !important;
 }
 
 .detailPagePrimaryContainer {
     position: relative !important;
-    z-index: 3 !important;
+    z-index: 5 !important;
 }
 
 /* ============================================================
