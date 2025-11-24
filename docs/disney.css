@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.1.5
+ * Version: 2.1.6
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -318,18 +318,34 @@ h1 {
     background: transparent !important;
 }
 
-/* Hide all default icons */
+/* Hide all default icons - aggressive approach */
 .cardImageIcon,
+.material-icons.cardImageIcon,
+span.cardImageIcon,
+i.cardImageIcon,
 .cardIndicators .material-icons,
 .defaultCardBackground,
 .defaultCardBackground1,
 .defaultCardBackground2,
 .defaultCardBackground3,
 .defaultCardBackground4,
-.defaultCardBackground5 {
+.defaultCardBackground5,
+.cardContent .material-icons:not(.playedIndicator):not(.countIndicator) {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* Specifically target the folder/video icons */
+.material-icons.folder,
+.material-icons.video_library,
+.material-icons.theaters,
+.material-icons.collections {
+    display: none !important;
 }
 
 /* All image elements */
