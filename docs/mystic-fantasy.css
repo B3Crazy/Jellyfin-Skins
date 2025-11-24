@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.1                                          ║
+ * ║       Version 1.0.0                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -619,17 +619,17 @@ input[type="search"]:focus {
     margin-top: 0;
     background: transparent;
     position: relative !important;
-    display: grid !important;
-    grid-template-columns: 300px 1fr !important;
-    grid-gap: 3rem !important;
-    align-items: start !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2rem !important;
+    align-items: flex-start !important;
 }
 
 .detailImageContainer {
     position: relative !important;
-    width: 100% !important;
-    max-width: 300px !important;
-    grid-column: 1 !important;
+    flex-shrink: 0 !important;
+    width: 300px !important;
+    min-width: 300px !important;
 }
 
 .detailImageContainer .card {
@@ -639,11 +639,11 @@ input[type="search"]:focus {
 
 .infoWrapper {
     position: relative !important;
-    grid-column: 2 !important;
+    flex: 1 !important;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 100% !important;
+    min-width: 0 !important;
 }
 
 .itemBackdrop {
@@ -935,17 +935,14 @@ tr:hover {
     }
     
     .detailRibbon {
-        grid-template-columns: 1fr !important;
-        grid-gap: 1.5rem !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
     }
     
     .detailImageContainer {
-        max-width: 250px !important;
+        width: 250px !important;
+        min-width: 250px !important;
         margin: 0 auto;
-    }
-    
-    .infoWrapper {
-        grid-column: 1 !important;
     }
 }
 
