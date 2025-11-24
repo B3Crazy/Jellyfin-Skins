@@ -1,9 +1,9 @@
 /**
- * JELLYFIN NETFLIX SKIN v6.0
- * Komplett überarbeitet mit korrekten Jellyfin 10.9+ Klassen
+ * JELLYFIN NETFLIX SKIN v7.0
+ * Ultra-aggressiver Netflix-Look
  */
 
-/* ==================== GLOBALE BASIS ==================== */
+/* ==================== CSS VARIABLEN ==================== */
 :root {
     --netflix-red: #E50914;
     --netflix-black: #141414;
@@ -11,6 +11,11 @@
     --netflix-gray: #2f2f2f;
     --netflix-light-gray: #404040;
     --netflix-white: #e5e5e5;
+}
+
+/* ==================== GLOBALE ÜBERSCHREIBUNG ==================== */
+* {
+    box-sizing: border-box;
 }
 
 html {
@@ -21,35 +26,55 @@ html {
 body {
     background-color: var(--netflix-black) !important;
     background-image: none !important;
+    background-attachment: fixed !important;
     color: var(--netflix-white) !important;
     font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
     margin: 0;
     padding: 0;
 }
 
-/* Hintergrundbilder komplett entfernen */
-.backdropImage,
-.backgroundContainer,
-.itemBackdropContainer {
-    display: none !important;
-}
-
-/* Alle Seiten schwarz */
+/* ALLE Hintergründe schwarz machen */
+body,
+html,
+#content,
+.mainDrawer,
+.skinBody,
+.pageContainer,
 .page,
 .view,
 .mainAnimatedPages,
+.mainAnimatedPage,
 #indexPage,
 .libraryPage,
-.itemsPage {
+.itemsPage,
+.homePage,
+div[data-role="page"],
+.scrollSlider {
     background-color: var(--netflix-black) !important;
     background-image: none !important;
 }
 
+/* Hintergrundbilder komplett entfernen */
+.backdropImage,
+.backgroundContainer,
+.itemBackdropContainer,
+.backdropContainer,
+.pageBackground {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
 
 /* ==================== NAVIGATION DRAWER (SIDEBAR) ==================== */
+.mainDrawer,
 .mainDrawer-scrollContainer,
-.navDrawer {
+.navDrawer,
+.drawer,
+.mainDrawerPanel,
+[class*="drawer"] {
     background-color: #000000 !important;
+    background-image: none !important;
 }
 
 .listItem.listItem-button {
@@ -93,10 +118,35 @@ body {
     background-color: #000000 !important;
 }
 
+/* ALLE Container */
+div[class*="container"],
+div[class*="Container"],
+section,
+main,
+article {
+    background-color: transparent !important;
+}
+
+/* Layout Containers */
+.layout-desktop,
+.layout-mobile,
+.layout-tv {
+    background-color: var(--netflix-black) !important;
+}
+
 /* ==================== TOP HEADER ==================== */
-.skinHeader {
+.skinHeader,
+.headerTop,
+header,
+.pageTitleWithLogo,
+.viewMenuBar {
     background: rgba(20, 20, 20, 0.95) !important;
+    background-image: none !important;
     backdrop-filter: blur(10px);
+    border-bottom: none !important;
+}
+
+.skinHeader {
     height: 68px !important;
     padding: 0 4% !important;
     display: flex;
@@ -165,8 +215,14 @@ body {
     padding-top: 68px !important;
 }
 
-.section {
+.section,
+.verticalSection,
+.homeSection,
+.focuscontainer-x,
+.focuscontainer-y,
+.verticalItemsContainer {
     margin: 3em 0 !important;
+    background-color: transparent !important;
 }
 
 .sectionTitle {
@@ -217,9 +273,20 @@ body {
     display: none !important;
 }
 
-/* Karten Basis */
-.card {
+/* Karten Basis - ALLE Typen */
+.card,
+.portraitCard,
+.backdropCard,
+.squareCard,
+.overflowPortraitCard,
+.overflowBackdropCard,
+.overflowSquareCard,
+.smallBackdropCard,
+[class*="Card"],
+.itemTile {
     background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
     border: none !important;
     border-radius: 4px !important;
     overflow: hidden !important;
@@ -347,6 +414,28 @@ body {
     background: transparent !important;
     padding: 0.5em 0 !important;
 }
+
+/* Card Overlays */
+.cardOverlayContainer,
+.cardOverlayInner,
+.cardOverlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent) !important;
+}
+
+.cardOverlayButton-br {
+    background: transparent !important;
+}
+
+/* Default Card Content */
+.defaultCardBackground {
+    background-color: var(--netflix-gray) !important;
+}
+
+.defaultCardBackground1 { background-color: var(--netflix-gray) !important; }
+.defaultCardBackground2 { background-color: var(--netflix-gray) !important; }
+.defaultCardBackground3 { background-color: var(--netflix-gray) !important; }
+.defaultCardBackground4 { background-color: var(--netflix-gray) !important; }
+.defaultCardBackground5 { background-color: var(--netflix-gray) !important; }
 
 /* ==================== DETAIL PAGE ==================== */
 .detailPage-content {
@@ -1024,6 +1113,28 @@ label {
     color: var(--netflix-white) !important;
 }
 
+/* ALLE Textfarben korrigieren */
+span,
+div,
+p,
+td,
+th,
+li {
+    color: inherit;
+}
+
+/* Spezielle Textelemente */
+.secondary,
+.secondaryText,
+.cardText-secondary,
+.listItemBodyText-secondary {
+    color: #b3b3b3 !important;
+}
+
+.listItemBodyText {
+    color: var(--netflix-white) !important;
+}
+
 /* Indicators */
 .indicator {
     background-color: var(--netflix-red) !important;
@@ -1170,6 +1281,26 @@ label {
     background-color: var(--netflix-black) !important;
 }
 
+/* ALLE Panels */
+.panel,
+.verticalPanel,
+.horizontalPanel,
+[class*="Panel"],
+[class*="panel"] {
+    background-color: transparent !important;
+}
+
+/* Info Panel */
+.infoBanner {
+    background-color: var(--netflix-dark-gray) !important;
+    color: var(--netflix-white) !important;
+}
+
+/* Side Panel */
+.sidebarPanel {
+    background-color: var(--netflix-dark-gray) !important;
+}
+
 .settingsSection {
     background-color: transparent !important;
     border-bottom: 1px solid var(--netflix-light-gray) !important;
@@ -1204,6 +1335,293 @@ label {
     background-color: rgba(255, 170, 0, 0.1) !important;
     padding: 1em !important;
     border-radius: 4px !important;
+}
+
+/* ==================== MASSIVE FALLBACK-ÜBERSCHREIBUNGEN ==================== */
+
+/* Alle möglichen Hintergrund-Container */
+div,
+section,
+main,
+aside,
+article,
+nav,
+header,
+footer {
+    background-image: none !important;
+}
+
+/* Alle möglichen Grautöne entfernen und durch Netflix-Grau ersetzen */
+[style*="background-color: rgb(24"],
+[style*="background-color: rgb(32"],
+[style*="background-color: rgb(40"],
+[style*="background-color: rgb(48"],
+[style*="background: rgb(24"],
+[style*="background: rgb(32"] {
+    background-color: var(--netflix-gray) !important;
+}
+
+/* Text-Kontrast verbessern */
+.itemName,
+.listItemBodyText,
+.cardText-first,
+.sectionTitle,
+h1, h2, h3 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Alle Buttons mit Klasse */
+button,
+.button,
+[class*="button"],
+[class*="Button"],
+[class*="btn"],
+[class*="Btn"] {
+    border: none !important;
+    outline: none !important;
+}
+
+/* Fokus-States */
+button:focus,
+.button:focus,
+a:focus,
+input:focus {
+    outline: 2px solid var(--netflix-red) !important;
+    outline-offset: 2px;
+}
+
+/* Alle möglichen Listen */
+.listItem,
+.listItemButton,
+ul li,
+ol li {
+    background-color: transparent !important;
+}
+
+/* Tabellen */
+table {
+    background-color: transparent !important;
+}
+
+table tr {
+    background-color: transparent !important;
+}
+
+table tr:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+table th,
+table td {
+    color: var(--netflix-white) !important;
+    border-color: var(--netflix-light-gray) !important;
+}
+
+/* Zebra-Streifen für Tabellen */
+table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Media Queries für Library-Ansicht */
+.itemsContainer-tv,
+.itemsContainer-mixed {
+    padding: 0 4% !important;
+}
+
+/* Spezielle Jellyfin-Elemente */
+.nowPlayingBar,
+.nowPlayingBarTop {
+    background: var(--netflix-dark-gray) !important;
+}
+
+.visualCard,
+.visualCardBox-cardBox,
+.visualCardBox-cardBox-bottomToTop,
+.visualCardBox-cardBox-withHoverMenu {
+    background-color: var(--netflix-gray) !important;
+    border-radius: 4px !important;
+}
+
+/* Alle Schaltflächen-Gruppen */
+.btnGroup,
+.button-group,
+.emby-button-group {
+    background: transparent !important;
+}
+
+/* Icon-Farben */
+i,
+.material-icons,
+.md-icon {
+    color: inherit !important;
+}
+
+/* Rating-Stars */
+.starIcon {
+    color: #ffd700 !important;
+}
+
+/* Breadcrumbs */
+.breadcrumb,
+.breadcrumb a {
+    color: var(--netflix-white) !important;
+}
+
+.breadcrumb a:hover {
+    color: var(--netflix-red) !important;
+}
+
+/* Pagination */
+.pagination,
+.paging {
+    background: transparent !important;
+}
+
+.pagination button,
+.paging button {
+    background: var(--netflix-gray) !important;
+    color: var(--netflix-white) !important;
+}
+
+.pagination button.selected,
+.paging button.selected {
+    background: var(--netflix-red) !important;
+}
+
+/* Select-Menüs */
+select,
+.selectMenu {
+    background-color: var(--netflix-gray) !important;
+    color: var(--netflix-white) !important;
+    border: 1px solid var(--netflix-light-gray) !important;
+}
+
+/* Dropdown-Menüs */
+.dropdownMenu,
+.selectMenu-menu {
+    background-color: var(--netflix-dark-gray) !important;
+    border: 1px solid var(--netflix-light-gray) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8) !important;
+}
+
+.dropdownMenu-item,
+.selectMenu-item {
+    color: var(--netflix-white) !important;
+    background: transparent !important;
+}
+
+.dropdownMenu-item:hover,
+.selectMenu-item:hover {
+    background-color: var(--netflix-gray) !important;
+}
+
+/* Media Info Items */
+.mediaInfoStream,
+.mediaInfoText {
+    color: var(--netflix-white) !important;
+}
+
+/* Metadaten */
+.metadataContainer {
+    background: transparent !important;
+}
+
+/* User Menu */
+.userMenu {
+    background: var(--netflix-dark-gray) !important;
+    border-radius: 4px !important;
+}
+
+/* Subtitle-Einstellungen */
+.subtitleSettings {
+    background: var(--netflix-dark-gray) !important;
+}
+
+/* Audio-Track-Auswahl */
+.audioTrackSelection {
+    background: var(--netflix-dark-gray) !important;
+}
+
+/* Quality-Selector */
+.qualitySelector {
+    background: var(--netflix-dark-gray) !important;
+}
+
+/* Playback-Settings */
+.playbackSettings {
+    background: var(--netflix-dark-gray) !important;
+}
+
+/* Collection-Items */
+.collectionItems {
+    background: transparent !important;
+}
+
+/* Episode-Liste */
+.episodesList {
+    background: transparent !important;
+}
+
+.listItem-episodeCard {
+    background: var(--netflix-gray) !important;
+    border-radius: 4px !important;
+    margin: 0.5em 0 !important;
+}
+
+.listItem-episodeCard:hover {
+    background: var(--netflix-light-gray) !important;
+}
+
+/* Season-Dropdown */
+.seasonDropdown {
+    background: var(--netflix-gray) !important;
+    color: var(--netflix-white) !important;
+}
+
+/* Similar Items */
+.similarItems,
+.moreFromArtist {
+    background: transparent !important;
+}
+
+/* Special-Features */
+.specialFeatures {
+    background: transparent !important;
+}
+
+/* Lyrics */
+.lyrics {
+    background: var(--netflix-dark-gray) !important;
+    color: var(--netflix-white) !important;
+    border-radius: 8px !important;
+    padding: 2em !important;
+}
+
+/* Jetzt läuft (Now Playing) */
+.nowPlayingPlaylist {
+    background: var(--netflix-dark-gray) !important;
+}
+
+/* Sync Play */
+.syncPlayMenu {
+    background: var(--netflix-dark-gray) !important;
+}
+
+/* Notifications */
+.notification {
+    background: var(--netflix-dark-gray) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Download-Queue */
+.downloadQueue {
+    background: var(--netflix-dark-gray) !important;
+}
+
+/* Instant Mix */
+.instantMix {
+    background: transparent !important;
 }
 
 /* ==================== END ==================== */
