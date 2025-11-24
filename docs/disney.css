@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.1.15
+ * Version: 2.1.16
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -1336,6 +1336,68 @@ img[loading], img[loading="lazy"] {
 .cardScalable > i, .cardScalable > span.material-icons {
     display: none !important;
     visibility: hidden !important;
+}
+
+/* ================================
+   FIX: Jellyfin Card Aspect Ratio Issue
+   ================================ */
+
+/* Remove aspect ratio constraints that hide images */
+.cardPadder {
+    padding-bottom: 0 !important;
+    height: auto !important;
+}
+
+/* Fix for portrait cards */
+.cardPadder-portrait {
+    padding-bottom: 150% !important;
+}
+
+/* Fix for backdrop/landscape cards */
+.cardPadder-backdrop {
+    padding-bottom: 56.25% !important;
+}
+
+/* Fix for square cards */
+.cardPadder-square {
+    padding-bottom: 100% !important;
+}
+
+/* Ensure card content is positioned correctly */
+.cardContent {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+}
+
+/* Force image to fill container */
+.cardImageContainer {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Ensure the card wrapper doesn't hide content */
+.card-withinPortraitContainer,
+.card-withinSquareContainer,
+.card-withinBackdropContainer {
+    position: relative !important;
+    display: block !important;
+}
+
+/* Fix lazy loading wrapper */
+.lazy-image-fadein-fast {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
 }
 
 /* End of Disney Fantasy Jellyfin Theme */
