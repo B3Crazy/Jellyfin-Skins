@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.1                                          ║
+ * ║       Version 1.0.0                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -626,10 +626,9 @@ input[type="search"]:focus {
                  0 0 40px var(--jf-purple-light) !important;
 }
 
-/* Original Titel verstecken - nur lokalisierte Titel anzeigen */
-.itemName.parentNameLast,
-.itemName.originalTitle,
-.parentName {
+/* Nur den ersten Titel anzeigen, zweiten verstecken */
+.itemName:nth-of-type(2),
+.itemDetailPageTitle:nth-of-type(2) {
     display: none !important;
 }
 
