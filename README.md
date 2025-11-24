@@ -10,6 +10,6 @@
 
 
 # Troubleshooting
-**Possible solutions:**
+**Possible solutions if the apperance doesn't change:**
 1. empty cache (Strg + F5 / STRG + Shift + R)
 2. check and reenter the CSS and save the change
