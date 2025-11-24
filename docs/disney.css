@@ -1,56 +1,66 @@
 /*
- * Disney+ Inspired Jellyfin Theme
- * Version: 1.1
+ * Disney Fantasy Jellyfin Theme
+ * Version: 2.0
  * Author: Jellyfin-Skins
- * Description: A theme inspired by Disney+ design language with vibrant colors, smooth animations, and modern layout
+ * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
 
 /* ================================
-   ROOT VARIABLES - Disney Color Palette
+   ROOT VARIABLES - Disney Fantasy Palette
    ================================ */
 :root {
-    /* Disney+ Brand Colors */
-    --disney-blue: #0063e5;
-    --disney-blue-dark: #0043a3;
-    --disney-blue-darker: #001e5f;
-    --disney-background: #040714;
-    --disney-background-light: #0d111f;
-    --disney-background-card: #13151f;
-    --disney-gradient-start: #1a1d29;
-    --disney-gradient-end: #040714;
+    /* Magical Castle Colors */
+    --magic-purple: #8b5cf6;
+    --magic-purple-dark: #6d28d9;
+    --magic-purple-light: #a78bfa;
+    --enchanted-blue: #3b82f6;
+    --fairy-pink: #ec4899;
+    --pixie-gold: #fbbf24;
+    --mystic-teal: #14b8a6;
     
-    /* Disney Accent Colors */
-    --disney-star: #ffd700;
-    --disney-marvel: #ed1d24;
-    --disney-pixar: #0099ff;
-    --disney-natgeo: #ffc107;
-    --disney-starwars: #000000;
+    /* Background - Night Sky & Castle */
+    --fantasy-background: #0f0a1e;
+    --fantasy-background-light: #1a1332;
+    --fantasy-card: #251b3d;
+    --castle-stone: #2d2347;
+    --night-sky: radial-gradient(ellipse at top, #1e1b4b 0%, #0f0a1e 50%);
+    
+    /* Magical Accents */
+    --sparkle-gold: #ffd700;
+    --stardust-silver: #e2e8f0;
+    --fairy-dust: rgba(251, 191, 36, 0.4);
+    --magic-glow: rgba(139, 92, 246, 0.5);
+    --enchantment: rgba(236, 72, 153, 0.3);
     
     /* Text Colors */
-    --text-primary: #f9f9f9;
-    --text-secondary: #cacaca;
-    --text-muted: #6d6d6d;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
     --text-hover: #ffffff;
+    --text-magic: #fbbf24;
     
     /* Interactive Elements */
-    --accent-primary: #0063e5;
-    --accent-hover: #0082ff;
-    --accent-active: #0043a3;
-    --button-primary: #0063e5;
-    --button-hover: #0082ff;
+    --accent-primary: var(--magic-purple);
+    --accent-hover: var(--magic-purple-light);
+    --accent-active: var(--magic-purple-dark);
+    --button-primary: var(--magic-purple);
+    --button-hover: var(--magic-purple-light);
     
     /* UI Elements */
-    --border-color: #1f2937;
-    --border-hover: #2d3748;
-    --card-background: rgba(19, 21, 31, 0.8);
-    --card-hover: rgba(25, 27, 37, 0.95);
-    --overlay: rgba(4, 7, 20, 0.85);
-    --shadow: rgba(0, 0, 0, 0.5);
+    --border-color: rgba(139, 92, 246, 0.2);
+    --border-hover: rgba(139, 92, 246, 0.5);
+    --border-glow: rgba(251, 191, 36, 0.3);
+    --card-background: rgba(37, 27, 61, 0.7);
+    --card-hover: rgba(45, 35, 71, 0.95);
+    --overlay: rgba(15, 10, 30, 0.85);
+    --shadow-magic: rgba(139, 92, 246, 0.4);
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #0063e5 0%, #0043a3 100%);
-    --gradient-card: linear-gradient(180deg, rgba(19, 21, 31, 0) 0%, rgba(4, 7, 20, 0.95) 100%);
-    --gradient-overlay: linear-gradient(0deg, rgba(4, 7, 20, 0.95) 0%, rgba(4, 7, 20, 0) 100%);
+    /* Gradients - Magical & Whimsical */
+    --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #fbbf24 100%);
+    --gradient-card: linear-gradient(180deg, rgba(37, 27, 61, 0) 0%, rgba(15, 10, 30, 0.95) 100%);
+    --gradient-overlay: linear-gradient(0deg, rgba(15, 10, 30, 0.95) 0%, transparent 100%);
+    --gradient-magic: linear-gradient(120deg, #8b5cf6, #ec4899, #fbbf24, #14b8a6);
+    --gradient-shimmer: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
 }
 
 /* ================================
@@ -62,13 +72,14 @@ html {
 }
 
 body {
-    background: var(--disney-background) !important;
-    font-family: "Avenir", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--fantasy-background) !important;
+    font-family: "Quicksand", "Comfortaa", "Avenir", "Segoe UI", Arial, sans-serif !important;
     color: var(--text-primary) !important;
     overflow-x: hidden;
+    position: relative;
 }
 
-/* Background Pattern */
+/* Magical Starry Background */
 body::before {
     content: "";
     position: fixed;
@@ -77,11 +88,47 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 50%, rgba(0, 99, 229, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0, 67, 163, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 40% 20%, rgba(0, 99, 229, 0.02) 0%, transparent 50%);
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 80%, white, transparent),
+        radial-gradient(1px 1px at 15% 90%, white, transparent),
+        var(--fantasy-background);
+    background-size: 200% 200%;
+    animation: twinkle 8s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
+    opacity: 0.6;
+}
+
+/* Magical Glow Orbs */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 15% 20%, var(--magic-glow) 0%, transparent 25%),
+        radial-gradient(circle at 85% 80%, var(--enchantment) 0%, transparent 30%),
+        radial-gradient(circle at 50% 50%, var(--fairy-dust) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+    animation: float 15s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
 }
 
 /* ================================
@@ -91,10 +138,30 @@ body::before {
 .headerTop,
 div[class*="topbar"],
 .appfooter {
-    background: linear-gradient(180deg, rgba(4, 7, 20, 0.98) 0%, rgba(4, 7, 20, 0.85) 100%) !important;
-    backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(180deg, rgba(26, 19, 50, 0.95) 0%, rgba(15, 10, 30, 0.9) 100%) !important;
+    backdrop-filter: blur(30px) saturate(200%);
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: 0 4px 40px var(--shadow-magic), 0 0 20px var(--magic-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer effect on header */
+.skinHeader::before,
+.headerTop::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-shimmer);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
 
 /* Navigation Buttons */
@@ -118,8 +185,14 @@ div[class*="topbar"],
 }
 
 .headerButton.headerUserButtonRound {
-    border: 2px solid var(--disney-blue);
-    box-shadow: 0 0 20px rgba(0, 99, 229, 0.3);
+    border: 2px solid var(--magic-purple);
+    box-shadow: 0 0 20px var(--magic-glow), 0 0 40px var(--enchantment);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px var(--magic-glow), 0 0 40px var(--enchantment); }
+    50% { box-shadow: 0 0 30px var(--magic-glow), 0 0 60px var(--enchantment); }
 }
 
 /* Search Bar */
@@ -142,8 +215,9 @@ div[class*="topbar"],
    ================================ */
 .mainDrawer,
 .mainDrawer-scrollContainer {
-    background: linear-gradient(180deg, var(--disney-background-light) 0%, var(--disney-background) 100%) !important;
-    border-right: 1px solid var(--border-color);
+    background: linear-gradient(180deg, var(--fantasy-background-light) 0%, var(--fantasy-background) 100%) !important;
+    border-right: 2px solid var(--border-color);
+    box-shadow: inset -3px 0 15px var(--shadow-magic);
 }
 
 .navMenuOption {
@@ -180,22 +254,32 @@ div[class*="topbar"],
     margin-bottom: 40px;
 }
 
-/* Section Headers */
+/* Section Headers - Enchanted Typography */
 h1, h2, h3, .sectionTitle {
     color: var(--text-primary) !important;
     font-weight: 700 !important;
-    letter-spacing: 0.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 1.5rem !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 25px !important;
+    text-shadow: 0 0 10px var(--magic-glow), 0 2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
 }
 
 h1 {
-    font-size: 2.5rem !important;
-    background: var(--gradient-primary);
+    font-size: 3rem !important;
+    background: var(--gradient-magic);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gradient-shift 4s ease infinite;
+    filter: drop-shadow(0 0 20px var(--pixie-gold));
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 /* ================================
@@ -205,21 +289,41 @@ h1 {
 .cardBox,
 .itemsContainer .card {
     background: var(--card-background) !important;
-    border: 1px solid transparent;
-    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--shadow-magic);
+    position: relative;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-shimmer);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .card:hover,
 .cardBox:hover {
     background: var(--card-hover) !important;
-    border-color: rgba(255, 255, 255, 0.15);
-    transform: scale(1.05) translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 99, 229, 0.3), 
-                0 0 0 1px rgba(255, 255, 255, 0.1);
+    border-color: var(--border-glow);
+    transform: scale(1.08) translateY(-12px) rotate(1deg);
+    box-shadow: 0 20px 60px var(--shadow-magic), 
+                0 0 40px var(--magic-glow),
+                0 0 0 2px var(--border-glow);
     z-index: 10;
+}
+
+.card:hover::before {
+    opacity: 0.3;
 }
 
 /* Card Images */
@@ -302,24 +406,50 @@ img {
 .button-flat:not(.paper-icon-button-light):not(.headerButton):not(.navMenuOption),
 .raisedButton,
 .raised {
-    background: var(--button-primary) !important;
+    background: var(--gradient-primary) !important;
+    background-size: 200% 200% !important;
     color: var(--text-hover) !important;
-    border: none !important;
-    border-radius: 8px !important;
-    padding: 12px 24px !important;
-    font-weight: 600 !important;
+    border: 2px solid var(--border-glow) !important;
+    border-radius: 25px !important;
+    padding: 12px 28px !important;
+    font-weight: 700 !important;
     text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: 0 4px 15px rgba(0, 99, 229, 0.3) !important;
+    letter-spacing: 1.5px !important;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    box-shadow: 0 4px 20px var(--shadow-magic), 0 0 20px var(--magic-glow) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-flat:not(.paper-icon-button-light):not(.headerButton):not(.navMenuOption)::before,
+.raisedButton::before,
+.raised::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
 }
 
 .button-flat:not(.paper-icon-button-light):not(.headerButton):not(.navMenuOption):hover,
 .raisedButton:hover,
 .raised:hover {
-    background: var(--button-hover) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(0, 99, 229, 0.5) !important;
+    background-position: 100% 50% !important;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 35px var(--shadow-magic), 0 0 40px var(--magic-glow) !important;
+    border-color: var(--sparkle-gold) !important;
+}
+
+.button-flat:not(.paper-icon-button-light):not(.headerButton):not(.navMenuOption):hover::before,
+.raisedButton:hover::before,
+.raised:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .button-flat:active,
@@ -327,18 +457,27 @@ img {
     transform: translateY(0);
 }
 
-/* Play Button */
+/* Enchanted Play Button */
 .itemDetailButtons .button-flat:first-child,
 .btnPlaystate,
 .btnPlay {
-    background: var(--text-hover) !important;
-    color: var(--disney-background) !important;
-    font-size: 1rem !important;
-    padding: 14px 32px !important;
+    background: linear-gradient(135deg, var(--sparkle-gold) 0%, var(--pixie-gold) 100%) !important;
+    color: var(--fantasy-background) !important;
+    font-size: 1.1rem !important;
+    padding: 16px 40px !important;
+    box-shadow: 0 6px 30px var(--fairy-dust), 0 0 30px var(--sparkle-gold) !important;
+    animation: sparkle-pulse 2s ease-in-out infinite;
 }
 
 .itemDetailButtons .button-flat:first-child:hover {
-    background: var(--text-secondary) !important;
+    background: linear-gradient(135deg, var(--pixie-gold) 0%, var(--sparkle-gold) 100%) !important;
+    transform: translateY(-4px) scale(1.1) !important;
+    box-shadow: 0 10px 50px var(--fairy-dust), 0 0 50px var(--sparkle-gold) !important;
+}
+
+@keyframes sparkle-pulse {
+    0%, 100% { box-shadow: 0 6px 30px var(--fairy-dust), 0 0 30px var(--sparkle-gold); }
+    50% { box-shadow: 0 8px 40px var(--fairy-dust), 0 0 50px var(--sparkle-gold); }
 }
 
 /* Icon Buttons */
@@ -435,9 +574,9 @@ select:focus,
 .emby-textarea:focus,
 .emby-select:focus {
     outline: none !important;
-    border-color: var(--disney-blue) !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    box-shadow: 0 0 0 3px rgba(0, 99, 229, 0.2) !important;
+    border-color: var(--magic-purple) !important;
+    background: rgba(139, 92, 246, 0.1) !important;
+    box-shadow: 0 0 0 4px var(--magic-glow), 0 0 20px var(--magic-glow) !important;
 }
 
 /* Checkboxes & Radio Buttons */
@@ -470,13 +609,17 @@ select:focus,
 
 .itemProgressBar,
 .itemProgressBarForeground {
-    background: var(--disney-blue) !important;
-    height: 4px !important;
-    border-radius: 2px;
+    background: var(--gradient-primary) !important;
+    background-size: 200% 100% !important;
+    height: 5px !important;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--magic-glow);
+    animation: gradient-shift 2s linear infinite;
 }
 
 .itemProgressBar {
-    background: rgba(255, 255, 255, 0.2) !important;
+    background: rgba(139, 92, 246, 0.2) !important;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 /* ================================
@@ -514,21 +657,39 @@ select:focus,
 }
 
 /* ================================
-   DIALOGS & MODALS
+   ENCHANTED DIALOGS & MODALS
    ================================ */
 .dialog,
 .dialogContent,
 .formDialogContent {
-    background: var(--disney-background-light) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 16px !important;
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8) !important;
+    background: var(--fantasy-background-light) !important;
+    border: 3px solid var(--border-glow) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 100px rgba(0, 0, 0, 0.9), 
+                0 0 60px var(--shadow-magic),
+                inset 0 0 30px rgba(139, 92, 246, 0.1) !important;
     color: var(--text-primary) !important;
+    position: relative;
+}
+
+.dialog::before,
+.dialogContent::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-magic);
+    border-radius: 20px;
+    opacity: 0.3;
+    z-index: -1;
+    animation: gradient-shift 4s ease infinite;
 }
 
 .dialogBackdrop {
-    background: rgba(4, 7, 20, 0.85) !important;
-    backdrop-filter: blur(10px);
+    background: rgba(15, 10, 30, 0.9) !important;
+    backdrop-filter: blur(20px);
 }
 
 .dialogHeader {
@@ -569,32 +730,33 @@ select:focus,
 }
 
 /* ================================
-   SCROLLBARS
+   ENCHANTED SCROLLBARS
    ================================ */
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--disney-blue) transparent;
+    scrollbar-color: var(--magic-purple) transparent;
 }
 
 *::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
 }
 
 *::-webkit-scrollbar-track {
-    background: transparent;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: rgba(0, 99, 229, 0.5);
+    background: var(--gradient-magic);
+    background-size: 200% 200%;
     border-radius: 10px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
+    border: 2px solid var(--fantasy-background);
+    animation: gradient-shift 3s ease infinite;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 99, 229, 0.8);
-    background-clip: padding-box;
+    box-shadow: 0 0 10px var(--magic-glow);
 }
 
 /* ================================
@@ -674,14 +836,22 @@ select:focus,
 }
 
 /* ================================
-   RATINGS & STARS
+   MAGICAL RATINGS & STARS
    ================================ */
 .starIcon {
-    color: var(--disney-star) !important;
+    color: var(--sparkle-gold) !important;
+    filter: drop-shadow(0 0 8px var(--pixie-gold));
+    animation: twinkle-star 2s ease-in-out infinite;
 }
 
 .starIcon-half {
-    color: var(--disney-star) !important;
+    color: var(--sparkle-gold) !important;
+    filter: drop-shadow(0 0 8px var(--pixie-gold));
+}
+
+@keyframes twinkle-star {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
 }
 
 /* ================================
@@ -826,22 +996,27 @@ select:focus,
 }
 
 /* ================================
-   GENRE TAGS
+   MAGICAL GENRE TAGS
    ================================ */
 .itemTag,
 .mediaInfoItem {
-    background: rgba(0, 99, 229, 0.2) !important;
-    color: var(--disney-blue) !important;
-    border: 1px solid var(--disney-blue) !important;
-    border-radius: 6px !important;
-    padding: 6px 12px !important;
-    font-weight: 600 !important;
-    transition: all 0.2s ease !important;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3)) !important;
+    color: var(--text-magic) !important;
+    border: 2px solid var(--border-glow) !important;
+    border-radius: 20px !important;
+    padding: 8px 16px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    box-shadow: 0 4px 15px var(--shadow-magic) !important;
 }
 
 .itemTag:hover {
-    background: var(--disney-blue) !important;
+    background: var(--gradient-primary) !important;
     color: var(--text-hover) !important;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 25px var(--magic-glow) !important;
 }
 
 /* ================================
