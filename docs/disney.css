@@ -20,6 +20,13 @@
 }
 
 :root {
+    /* === JellySkin-Style Variablen für mystisches Theme === */
+    --accent1-light: hsl(270, 60%, 50%);
+    --accent1-dark: hsl(270, 60%, 15%);
+    --accent1-light-opacity1: hsla(270, 60%, 50%, 0.4);
+    --accent2-light: hsl(180, 100%, 50%);
+    --accent2-dark: hsl(180, 100%, 20%);
+    
     /* === Mystische Fantasy Farbpalette === */
     --mystic-deep-purple: #1a0d2e;
     --mystic-royal-purple: #2d1b4e;
@@ -39,6 +46,25 @@
     --night-blue: #0f1729;
     --shadow-deep: #16192e;
     --midnight-purple: #1e1433;
+    
+    /* === JellySkin Gradienten === */
+    --jf-purple-light: var(--accent1-light);
+    --jf-purple-dark: var(--accent1-dark);
+    --jf-cyan-light: var(--accent2-light);
+    --jf-cyan-dark: var(--accent2-dark);
+    --gradient-default: linear-gradient(130deg, var(--jf-purple-light), var(--jf-cyan-light));
+    --gradient-dark: linear-gradient(130deg, var(--jf-purple-dark), var(--jf-cyan-dark));
+    --gradient-inverted: linear-gradient(130deg, var(--jf-cyan-light), var(--jf-purple-light));
+    
+    /* === JellySkin Settings === */
+    --rounding-max: 20px;
+    --rounding-default: 10px;
+    --rounding-min: 5px;
+    --filter-blur-default: 25px;
+    --transition-time-default: 250ms;
+    --transition-time-fast: 100ms;
+    --background-dark: hsl(270, 80%, 10%);
+    --background-darker: hsl(270, 80%, 5%);
     
     /* === Helle Akzente === */
     --moonlight: #e8d5ff;
@@ -559,8 +585,26 @@ input[type="search"]:focus {
 
 .navMenuOption {
     margin: 0.5rem 1rem;
-    border-radius: var(--border-radius-medium);
-    transition: all var(--transition-medium);
+    border-radius: var(--rounding-default);
+    transition: all var(--transition-time-default);
+    position: relative;
+}
+
+.navMenuOption::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: var(--gradient-default);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--transition-time-fast) linear;
+}
+
+.navMenuOption:hover::after {
+    opacity: 1;
 }
 
 .navMenuOption i,
@@ -643,14 +687,58 @@ input[type="search"]:focus {
         rgba(45, 27, 78, 0.95) 100%);
 }
 
-/* Karten-Bilder */
-.cardImage,
-.cardImageContainer,
-.cardContent {
-    border-radius: var(--border-radius-medium) !important;
+/* JellySkin Card Structure */
+.cardScalable {
+    position: relative;
+    aspect-ratio: auto;
+    overflow: hidden;
+    border-radius: var(--rounding-default) var(--rounding-default) 0 0;
+    box-shadow: none !important;
+    width: calc(100% + 1px);
+}
+
+.cardScalable > * {
+    border-radius: 0 !important;
+    width: 100%;
+    box-shadow: none !important;
+}
+
+.cardImageContainer {
+    border-radius: var(--rounding-default) !important;
     overflow: hidden !important;
     position: relative;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Image Zoom Effect - JellySkin Style */
+.card:not(.imageEditorCard) .cardImageContainer::after,
+.card:not(.imageEditorCard) .cardImageContainer::before {
+    content: "";
+    position: absolute;
+    background: inherit;
+}
+
+.card:not(.imageEditorCard) .cardImageContainer::after {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transform: scale(1);
+    z-index: -1;
+    transition: transform var(--transition-time-fast) ease-in-out;
+}
+
+.card:not(.imageEditorCard) .cardImageContainer::before {
+    filter: blur(5px) brightness(50%);
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    top: -10px;
+    left: -10px;
+    z-index: -1;
+}
+
+.card:hover .cardImageContainer::after,
+.card:focus-visible .cardImageContainer::after {
+    transform: scale(1.1);
 }
 
 .cardImage::after {
@@ -714,6 +802,24 @@ input[type="search"]:focus {
     z-index: 2;
 }
 
+/* JellySkin Progress Bar */
+.innerCardFooter {
+    width: 90%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--rounding-default);
+}
+
+.innerCardFooter .itemProgressBar {
+    background: rgba(255, 255, 255, 0.3);
+    height: 0.4em;
+}
+
+.innerCardFooter .itemProgressBarForeground {
+    background: var(--gradient-default) !important;
+}
+
 /* Card Text Container */
 .cardScalable {
     background: transparent !important;
@@ -729,66 +835,83 @@ input[type="search"]:focus {
 }
 
 /* ============================================================
+   SECTION TITLES - JELLYSKIN STYLE
+   ============================================================ */
+
+#indexPage .sectionTitle {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    color: white;
+    align-items: center;
+    font-size: 1.6em;
+    font-family: 'Cinzel', serif;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+#indexPage .sectionTitle::before {
+    content: "";
+    margin-right: 0.5em;
+    width: 1.3em;
+    height: 2px;
+    background: var(--gradient-default);
+}
+
+/* ============================================================
    BUTTONS & INTERAKTIVE ELEMENTE
    ============================================================ */
 
+.emby-button[is="emby-button"]:not(.emby-tab-button),
+.emby-button.raised[is="emby-linkbutton"]:not(.emby-tab-button),
 .button-submit,
-.raised,
-.emby-button,
-.btnNotifications,
-.paper-icon-button-light {
-    background: linear-gradient(135deg,
-        var(--mystic-violet) 0%,
-        var(--mystic-lavender) 100%) !important;
-    color: var(--text-primary) !important;
-    border: 2px solid var(--magic-cyan);
-    border-radius: var(--border-radius-medium);
+.raised {
+    background: var(--background-dark) !important;
+    border-radius: 100vh;
+    overflow: hidden;
+    color: var(--moonlight) !important;
+    border: none;
     padding: 0.875rem 2rem;
     font-weight: 600;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    transition: all var(--transition-medium);
+    transition: all var(--transition-time-default);
     position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.button-submit::before,
-.raised::before,
-.emby-button::before {
-    content: '';
+.emby-button[is="emby-button"]:not(.emby-tab-button)::after,
+.emby-button.raised[is="emby-linkbutton"]:not(.emby-tab-button)::after,
+.button-submit::after,
+.raised::after {
+    content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: var(--gradient-default);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--transition-time-fast) linear;
+}
+
+.emby-button[is="emby-button"]:not(.emby-tab-button):hover::after,
+.emby-button[is="emby-button"]:not(.emby-tab-button):focus::after,
+.emby-button.raised[is="emby-linkbutton"]:not(.emby-tab-button):hover::after,
+.emby-button.raised[is="emby-linkbutton"]:not(.emby-tab-button):focus::after,
+.button-submit:hover::after,
+.raised:hover::after {
+    opacity: 1;
 }
 
 .button-submit:hover,
 .raised:hover,
 .emby-button:hover {
-    background: linear-gradient(135deg,
-        var(--mystic-lavender) 0%,
-        var(--magic-purple) 100%) !important;
+    transform: translateY(-2px);
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.6),
-                0 0 40px rgba(185, 104, 255, 0.4),
-                var(--shadow-medium);
-    transform: translateY(-4px) scale(1.05);
-    border-color: var(--magic-purple);
-}
-
-.button-submit:hover::before,
-.raised:hover::before,
-.emby-button:hover::before {
-    width: 300px;
-    height: 300px;
+                0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 .button-submit:active,
@@ -849,6 +972,46 @@ input[type="search"]:focus {
     box-shadow: 0 0 60px rgba(0, 255, 255, 1),
                 0 0 80px rgba(185, 104, 255, 0.6),
                 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* Card Overlay Buttons - JellySkin Style */
+.cardOverlayContainer {
+    display: flex;
+    flex-flow: column;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardOverlayButton {
+    border-radius: 100px !important;
+}
+
+.cardOverlayButton span {
+    background: linear-gradient(0deg, var(--jf-purple-light) 10%, var(--jf-cyan-light) 90%) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    color: transparent !important;
+    transition: var(--transition-time-fast);
+}
+
+.cardOverlayButton[data-action="resume"] {
+    border-radius: 1000px;
+    padding: 1.5em;
+    background: var(--gradient-default) !important;
+    color: white !important;
+}
+
+.cardOverlayButton[data-action="resume"]:hover,
+.cardOverlayButton[data-action="resume"]:focus-visible {
+    filter: brightness(0.5);
+}
+
+.cardOverlayButton:hover,
+.cardOverlayButton:focus-visible {
+    transform: scale(1) !important;
 }
 
 /* ============================================================
