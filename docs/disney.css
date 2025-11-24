@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.1.9
+ * Version: 2.1.10
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -323,33 +323,44 @@ h1 {
     isolation: isolate;
 }
 
-/* Completely hide all placeholder icons and backgrounds */
+/* Hide ALL material icons in card image areas */
+.cardImageContainer .material-icons,
+.cardContent-button .material-icons,
+.cardScalable .material-icons,
+.cardOverlayContainer .material-icons,
 .cardImageIcon,
 .defaultCardBackground,
 .defaultCardBackground1,
 .defaultCardBackground2,
 .defaultCardBackground3,
 .defaultCardBackground4,
-.defaultCardBackground5,
-.material-icons.cardImageIcon {
+.defaultCardBackground5 {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     width: 0 !important;
     height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    pointer-events: none !important;
 }
 
-/* All image elements - simplified stacking */
+/* All image elements - force display */
 .cardImage,
 .cardImageContainer img,
 .itemTileImage,
 .cardContent img,
 .cardScalable img,
-.cardOverlayContainer img {
+.cardOverlayContainer img,
+img.itemImage,
+img.coveredImage,
+.lazy-image-fadein-fast {
     object-fit: cover !important;
     width: 100% !important;
     height: 100% !important;
     display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -381,6 +392,16 @@ picture {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
+}
+
+/* Images must be above blurhash */
+.cardImageContainer img,
+.cardImage,
+picture,
+picture img {
+    position: relative !important;
+    z-index: 2 !important;
 }
 
 /* Fade out blurhash when image is loaded */
@@ -388,6 +409,7 @@ img[src]:not([src=""]) ~ .blurhash-canvas,
 .cardImageContainer:has(img[src]) .blurhash-canvas {
     opacity: 0 !important;
     pointer-events: none !important;
+    transition: opacity 0.3s ease !important;
 }
 
 /* Card content properly layered */
@@ -1168,6 +1190,22 @@ a,
 .cardImageContainer-portrait,
 .cardImageContainer-landscape,
 .cardImageContainer-square {
+    background: transparent !important;
+}
+
+/* Force hide any icon that appears in image container */
+.cardImageContainer > i,
+.cardImageContainer > span.material-icons,
+.cardScalable > i,
+.cardScalable > span.material-icons {
+    display: none !important;
+}
+
+/* Make sure card padder doesn't interfere */
+.cardPadder,
+.cardPadder-portrait,
+.cardPadder-backdrop,
+.cardPadder-square {
     background: transparent !important;
 }
 
