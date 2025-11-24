@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
  * ║       MYSTIC FANTASY - JELLYFIN THEME                        ║
- * ║       Version 1.0.0                                          ║
+ * ║       Version 1.0.1                                          ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -607,43 +607,57 @@ input[type="search"]:focus {
 
 #itemDetailPage {
     --card-width: 14vw;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
     padding: 3.2em !important;
 }
 
 .detailRibbon {
     height: auto !important;
-    min-height: 60vh;
-    margin-top: 0;
-    background: transparent;
+    min-height: 60vh !important;
+    margin-top: 0 !important;
+    background: transparent !important;
     position: relative !important;
     display: flex !important;
     flex-direction: row !important;
+    flex-wrap: nowrap !important;
     gap: 2rem !important;
     align-items: flex-start !important;
+    justify-content: flex-start !important;
 }
 
 .detailImageContainer {
     position: relative !important;
     flex-shrink: 0 !important;
+    flex-grow: 0 !important;
     width: 300px !important;
     min-width: 300px !important;
+    max-width: 300px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .detailImageContainer .card {
     margin: 0 !important;
     position: relative !important;
+    display: block !important;
+    visibility: visible !important;
 }
 
 .infoWrapper {
     position: relative !important;
     flex: 1 !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-shrink: 1 !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
     min-width: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .itemBackdrop {
@@ -667,16 +681,19 @@ input[type="search"]:focus {
 
 .itemName,
 .itemDetailPageTitle {
-    font-family: 'Cinzel', serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: white;
+    font-family: 'Cinzel', serif !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: white !important;
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9),
-                 0 0 40px var(--jf-purple-light);
+                 0 0 40px var(--jf-purple-light) !important;
     margin-top: 0 !important;
     margin-bottom: 1rem !important;
     position: relative !important;
     z-index: 10 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .itemMiscInfo,
@@ -684,11 +701,15 @@ input[type="search"]:focus {
     margin-top: 1rem !important;
     position: relative !important;
     z-index: 10 !important;
+    display: block !important;
+    visibility: visible !important;
 }
 
 .detailPagePrimaryContainer {
     position: relative !important;
     z-index: 10 !important;
+    display: block !important;
+    visibility: visible !important;
 }
 
 /* ============================================================
@@ -931,18 +952,28 @@ tr:hover {
     
     .itemName,
     .itemDetailPageTitle {
-        font-size: 2rem;
+        font-size: 2rem !important;
     }
     
     .detailRibbon {
         flex-direction: column !important;
+        align-items: center !important;
         gap: 1.5rem !important;
     }
     
     .detailImageContainer {
         width: 250px !important;
         min-width: 250px !important;
-        margin: 0 auto;
+        max-width: 250px !important;
+        margin: 0 auto !important;
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    .infoWrapper {
+        width: 100% !important;
+        display: flex !important;
+        visibility: visible !important;
     }
 }
 
