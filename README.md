@@ -3,7 +3,7 @@ Custom CSS themes to enhance your jellyfin experience
 
 | Current available Skins | Import URL | screenshots |
 |-|-|-|
-| mystic-fantasy | @import url('https://b3crazy.github.io/Jellyfin-Skins/docs/mystic-fantasy.css'); | screenshots/mystic-fantasy-film.PNG screenshots/mystic-fantasy-main.PNG |
+| mystic-fantasy | @import url('https://b3crazy.github.io/Jellyfin-Skins/docs/mystic-fantasy.css'); | ![images/mystic-fantasy-main.png] |
 
 
 
