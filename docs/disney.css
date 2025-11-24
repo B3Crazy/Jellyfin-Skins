@@ -1,6 +1,6 @@
 /*
  * Disney Fantasy Jellyfin Theme
- * Version: 2.1.13
+ * Version: 2.1.14
  * Author: Jellyfin-Skins
  * Description: A magical Disney-inspired theme with enchanted colors, whimsical animations, and fairy tale aesthetics
  */
@@ -1248,6 +1248,100 @@ picture img,
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
+}
+
+/* ================================
+   NUCLEAR OPTION - FORCE IMAGES TO SHOW
+   ================================ */
+
+/* Remove ALL potential blockers */
+.card,
+.cardBox,
+.cardScalable,
+.cardImageContainer,
+.cardContent,
+.cardContent-button,
+.cardOverlayContainer,
+.itemAction,
+.lazy-image-container,
+.blurhash-container,
+picture {
+    background: none !important;
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+/* Force every possible image selector to display */
+img,
+.card img,
+.cardBox img,
+.cardImage,
+.cardImageContainer img,
+.cardScalable img,
+.lazy-image-fadein-fast,
+.itemTileImage,
+img[src],
+img[src*="Items"],
+img[src*="Primary"],
+.cardContent img,
+.cardOverlayContainer img,
+.cardImageContainer picture img,
+picture > img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 999 !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Make sure nothing is hiding images */
+.cardImageContainer,
+.cardScalable,
+.lazy-image-container,
+picture {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+}
+
+/* Ensure no filters or transforms hide images */
+.card img,
+.cardBox img,
+.cardImageContainer img {
+    filter: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    mask: none !important;
+    -webkit-mask: none !important;
+}
+
+/* Force lazy loaded images to show immediately */
+img[loading="lazy"],
+img.lazy,
+.lazy-image-fadein-fast {
+    opacity: 1 !important;
+    animation: none !important;
+}
+
+/* Blurhash should never cover images */
+.blurhash-canvas {
+    display: none !important;
+}
+
+/* No background gradients on cards that might hide images */
+.card::before,
+.card::after,
+.cardBox::before,
+.cardBox::after,
+.cardImageContainer::before,
+.cardImageContainer::after {
+    display: none !important;
 }
 
 /* End of Disney Fantasy Jellyfin Theme */
