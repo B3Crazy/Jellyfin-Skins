@@ -10,7 +10,7 @@ Authentisches Netflix-Design für Jellyfin mit schwarzem Hintergrund, roten Akze
 
 **Import URL:**
 ```
-https://b3crazy.github.io/Jellyfin-Skins/netflix-clone.css
+@import url('https://b3crazy.github.io/Jellyfin-Skins/netflix-clone.css');
 ```
 
 **Neue Features in v4.0:**
