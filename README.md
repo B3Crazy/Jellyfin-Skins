@@ -4,7 +4,7 @@
 -
 
 ## Skins:
-- ***mystic-fantasy | @import url('https://b3crazy.github.io/Jellyfin-Skins/docs/mystic-fantasy.css');***
+- ***mystic-fantasy | @import url('https://b3crazy.github.io/Jellyfin-Skins/mystic-fantasy.css');***
 ![window-main](screenshots/mystic-fantasy-main.PNG) ![window-film](screenshots/mystic-fantasy-film.PNG)
 
 - ***standart-lecturate | @import url('https://b3crazy.github.io/Jellyfin-Skins/standart-lecturate.css');***
